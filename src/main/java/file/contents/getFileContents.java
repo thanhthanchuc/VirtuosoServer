@@ -1,4 +1,4 @@
-package file.list.contents;
+package file.contents;
 
 import java.io.File;
 import java.io.FileNotFoundException;

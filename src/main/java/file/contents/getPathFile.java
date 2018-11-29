@@ -1,4 +1,4 @@
-package file.list.contents;
+package file.contents;
 
 public class getPathFile {
 	//Change here
