@@ -4,8 +4,7 @@ public class Person extends EntityModel {
 	private String position;
 	
 	public Person(String firstName, String lastName, String position, String detail) {
-		this.name =  firstName + " " + lastName;
-		this.position = position;
+		super(firstName + " " + lastName, detail);
 		this.detail = detail;
 	}
 

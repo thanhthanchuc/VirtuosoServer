@@ -2,7 +2,6 @@ package contains.tripleStatement.Literal;
 
 import java.io.FileNotFoundException;
 
-import org.eclipse.rdf4j.model.IRI;
 import org.eclipse.rdf4j.model.Literal;
 
 import contains.variable.Variable;
