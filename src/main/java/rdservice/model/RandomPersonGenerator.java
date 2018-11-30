@@ -1,4 +1,4 @@
-package rdservice;
+package rdservice.model;
 
 import java.io.FileNotFoundException;
 import java.security.SecureRandom;

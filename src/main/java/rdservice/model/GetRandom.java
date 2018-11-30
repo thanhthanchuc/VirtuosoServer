@@ -1,4 +1,4 @@
-package rdservice;
+package rdservice.model;
 
 import java.util.ArrayList;
 import java.util.Random;

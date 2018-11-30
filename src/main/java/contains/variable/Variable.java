@@ -4,11 +4,11 @@ import org.eclipse.rdf4j.model.IRI;
 import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
 
 public class Variable {
-	// The full namespace: "http://example.org/".
-	public static final String NAMESPACE = "http://example.org/";
+	// The full namespace: "http://facebook.com/".
+	public static final String NAMESPACE = "http://facebook.com/";
 
-	// The prefix usually used for this vocabulary: 'ex'.
-	public static final String PREFIX = "ex";
+	// The prefix usually used for this vocabulary: 'fb'.
+	public static final String PREFIX = "fb";
 
 	/**
 	 * The <code>ex:creatorOf</code> property.
