@@ -13,6 +13,7 @@ public class RandomPersonGenerator {
 	private ArrayList<String> positions;
 	private ArrayList<String> detailPerson;
 
+	//Khi tao moi object RandomPersonGenerator, data se auto add vao list 
 	public RandomPersonGenerator() throws FileNotFoundException {
 		firstNames = ListData.ListFirstNames();
 		lastNames = ListData.ListLastNames();
@@ -33,7 +34,6 @@ public class RandomPersonGenerator {
 		try {
 			p = new RandomPersonGenerator();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		String fn = GetRandom.getRandomFromList(p.firstNames);
@@ -42,4 +42,14 @@ public class RandomPersonGenerator {
 		String de = GetRandom.getRandomFromList(p.detailPerson);
 		return new Person(fn, ln, pos, de);
 	}
+	
+	/*Random successfully*/
+//	public static void main(String[] arg) throws FileNotFoundException {
+//		RandomPersonGenerator rd = new RandomPersonGenerator();
+//		for(int i = 0; i< 100; i++) {
+//			
+//			Person person = rd.generateRandomPerson();
+//			System.out.println(person.Detail());
+//		}
+//	}
 }
