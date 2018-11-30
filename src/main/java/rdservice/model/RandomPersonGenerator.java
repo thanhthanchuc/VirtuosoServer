@@ -27,18 +27,19 @@ public class RandomPersonGenerator {
 	 * @return Person
 	 * @throws FileNotFoundException 
 	 */
-	public static Person generateRandomPerson() throws FileNotFoundException {
+	public Person generateRandomPerson() {
 		//Tao person de them du lieu vao cac truong tren
-		RandomPersonGenerator p = new RandomPersonGenerator();
+		RandomPersonGenerator p = null;
+		try {
+			p = new RandomPersonGenerator();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		String fn = GetRandom.getRandomFromList(p.firstNames);
 		String ln = GetRandom.getRandomFromList(p.lastNames);
 		String pos = GetRandom.getRandomFromList(p.positions);
 		String de = GetRandom.getRandomFromList(p.detailPerson);
 		return new Person(fn, ln, pos, de);
-	}
-	
-	public static void main(String[] arg) throws FileNotFoundException {
-		Person person = generateRandomPerson();
-		System.out.println(person.name);
 	}
 }

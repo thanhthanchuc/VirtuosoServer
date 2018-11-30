@@ -9,7 +9,7 @@ public class Person extends EntityModel {
 		this.detail = detail;
 	}
 
-	public String getPosition() {
+	public String Position() {
 		return position;
 	}
 

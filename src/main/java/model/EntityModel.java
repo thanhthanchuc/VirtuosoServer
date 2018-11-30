@@ -2,10 +2,10 @@ package model;
 
 public abstract class EntityModel {
 	//Test. Sau nay co file se add them field o day.
-	public String name;
-	public String detail;
+	protected String name;
+	protected String detail;
 	
-	public String getDetail() {
+	public String Detail() {
 		return detail;
 	}
 
