@@ -6,7 +6,6 @@ import file.contents.ListData;
 import model.Country;
 
 public class RandomCountryGenerator {
-	private Country country;
 	
 	//random
 	private static Random rand = new Random();

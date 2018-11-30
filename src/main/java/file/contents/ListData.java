@@ -1,5 +1,6 @@
 package file.contents;
 
+import java.awt.Event;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
@@ -75,6 +76,14 @@ public class ListData {
 			list.add(new Country(arr[i], listDetail.get(i)));
 		}
 		return list;
+	}
+	
+	public static ArrayList<String> listEvent() {
+		return getFileContents.getListFiles(getPathFile.pathEvent);
+	}
+	
+	public static ArrayList<String> listTime() {
+		return getFileContents.getListFiles(getPathFile.pathTime);
 	}
 	
 	public static void main(String[] args) throws FileNotFoundException {
