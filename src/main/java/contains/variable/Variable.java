@@ -5,11 +5,11 @@ import org.eclipse.rdf4j.model.Literal;
 import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
 
 public class Variable {
-	// The full namespace: "http://facebook.com/".
-	public static final String NAMESPACE = "http://facebook.com/";
+	// The full namespace: "http://example.org/".
+	public static final String NAMESPACE = "http://example.org/";
 
-	// The prefix usually used for this vocabulary: 'fb'.
-	public static final String PREFIX = "fb";
+	// The prefix usually used for this vocabulary: 'ex'.
+	public static final String PREFIX = "ex";
 
 //	/**
 //	 * The <code>ex:creatorOf</code> property.
