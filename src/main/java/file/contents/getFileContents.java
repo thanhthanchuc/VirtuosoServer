@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class getFileContents {
 	//Get List of member
-	public static ArrayList<String> getListFiles(String fileName) throws FileNotFoundException {
+	public static ArrayList<String> getListFiles(String fileName) {
 		ArrayList<String> list = new ArrayList<String>();
 		File file = new File(fileName);
 		try (Scanner inputStream = new Scanner(file)) {
@@ -25,6 +25,9 @@ public class getFileContents {
 					continue;
 				}
 			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		if(list.size() == 1) {
 			String s = list.get(0);

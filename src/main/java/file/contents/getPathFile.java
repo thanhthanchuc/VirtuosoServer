@@ -9,4 +9,5 @@ public class getPathFile {
 	// protected static final String pathVerbForIRI =
 	// "src/main/java/file/list_contents/ListVerbForIRI.txt";
 	protected static final String pathPosition = "src/main/java/file/ListPosition.txt";
+	protected static final String pathDetailPerson = "src/main/java/file/PersonDetail.txt";
 }

@@ -1,6 +1,7 @@
 package contains.variable;
 
 import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Literal;
 import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
 
 public class Variable {
@@ -10,19 +11,19 @@ public class Variable {
 	// The prefix usually used for this vocabulary: 'fb'.
 	public static final String PREFIX = "fb";
 
-	/**
-	 * The <code>ex:creatorOf</code> property.
-	 */
-	public static final IRI CREATOR_OF = getIRI("creatorOf");
-
-	/**
-	 * The <code>ex:Artist</code> class.
-	 */
-	public static final IRI ARTIST = getIRI("Artist");
-
-	public static final IRI WATCH = getIRI("Watch");
-
-	public static final IRI COME = getIRI("Come");
+//	/**
+//	 * The <code>ex:creatorOf</code> property.
+//	 */
+//	public static final IRI CREATOR_OF = getIRI("creatorOf");
+//
+//	/**
+//	 * The <code>ex:Artist</code> class.
+//	 */
+//	public static final IRI ARTIST = getIRI("Artist");
+//
+//	public static final IRI WATCH = getIRI("Watch");
+//
+//	public static final IRI COME = getIRI("Come");
 
 	/**
 	 * Creates a new {@link IRI} with this vocabulary's namespace for the given
@@ -33,7 +34,11 @@ public class Variable {
 	 * @return an IRI using the http://example.org/ namespace and the given local
 	 *         name.
 	 */
-	private static IRI getIRI(String localName) {
+	protected static IRI getIRI(String localName) {
 		return SimpleValueFactory.getInstance().createIRI(NAMESPACE, localName);
+	}
+	
+	protected static Literal getLiteral(String localName) {
+		return SimpleValueFactory.getInstance().createLiteral(NAMESPACE, localName);
 	}
 }

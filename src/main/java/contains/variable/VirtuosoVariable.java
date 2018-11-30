@@ -5,9 +5,9 @@ public class VirtuosoVariable {
 	public static final String USERNAME = "dba";
 	public static final String PASSWORD = "dba";
 
-	// The full namespace: "http://example.org/".
+	// The full namespace: "http://facebook.com/".
 	public static final String NAMESPACE = "http://facebook.com/";
 
-	// The prefix usually used for this vocabulary: 'ex'.
+	// The prefix usually used for this vocabulary: 'fb'.
 	public static final String PREFIX = "fb";
 }

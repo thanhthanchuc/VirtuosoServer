@@ -10,6 +10,7 @@ public class ListData {
 	private static ArrayList<String> listLastName;
 	private static ArrayList<String> position;
 	private static ArrayList<String> listVerbForIRI;
+	private static ArrayList<String> listDetailPerson;
 
 	public static ArrayList<String> ListVerbForIRIs() {
 		return listVerbForIRI;
@@ -24,6 +25,11 @@ public class ListData {
 	public static ArrayList<String> ListCitys() throws FileNotFoundException {
 		listCity = getFileContents.getListFiles(getPathFile.pathCity);
 		return listCity;
+	}
+	
+	public static ArrayList<String> listDetailPerson() {
+		listDetailPerson = getFileContents.getListFiles(getPathFile.pathDetailPerson);
+		return listDetailPerson;
 	}
 
 	public static ArrayList<String> ListPositions() throws FileNotFoundException {

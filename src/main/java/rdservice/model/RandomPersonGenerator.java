@@ -1,9 +1,7 @@
 package rdservice.model;
 
 import java.io.FileNotFoundException;
-import java.security.SecureRandom;
 import java.util.ArrayList;
-import java.util.Random;
 
 import file.contents.ListData;
 import model.Person;
@@ -13,11 +11,13 @@ public class RandomPersonGenerator {
 	private ArrayList<String> firstNames;
 	private ArrayList<String> lastNames;
 	private ArrayList<String> positions;
+	private ArrayList<String> detailPerson;
 
 	public RandomPersonGenerator() throws FileNotFoundException {
 		firstNames = ListData.ListFirstNames();
 		lastNames = ListData.ListLastNames();
 		positions = ListData.ListPositions();
+		detailPerson = ListData.listDetailPerson();
 	}
 
 	/**
@@ -33,7 +33,8 @@ public class RandomPersonGenerator {
 		String fn = GetRandom.getRandomFromList(p.firstNames);
 		String ln = GetRandom.getRandomFromList(p.lastNames);
 		String pos = GetRandom.getRandomFromList(p.positions);
-		return new Person(fn, ln, pos);
+		String de = GetRandom.getRandomFromList(p.detailPerson);
+		return new Person(fn, ln, pos, de);
 	}
 	
 	public static void main(String[] arg) throws FileNotFoundException {
