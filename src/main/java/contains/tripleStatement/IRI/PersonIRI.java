@@ -11,6 +11,9 @@ import rdservice.model.RandomPersonGenerator;
 public class PersonIRI {
 	private RandomPersonGenerator rp;
 	private Person p;
+	public IRI NAME;
+	public IRI POSITION;
+	public IRI DETAIL;
 	
 	public PersonIRI() {
 		try {
@@ -19,9 +22,8 @@ public class PersonIRI {
 			e.printStackTrace();
 		}
 		p = rp.generateRandomPerson();
+		NAME = Variable.getIRI(p.Name());
+		POSITION = Variable.getIRI(p.Position());
+		DETAIL = Variable.getIRI(p.Detail());
 	}
-	
-	public IRI NAME = Variable.getIRI(p.Name());
-	public IRI POSITION = Variable.getIRI(p.Position());
-	public IRI DETAIL = Variable.getIRI(p.Detail());
 }
