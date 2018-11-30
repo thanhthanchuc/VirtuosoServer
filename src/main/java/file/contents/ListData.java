@@ -1,6 +1,5 @@
 package file.contents;
 
-import java.awt.Event;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
