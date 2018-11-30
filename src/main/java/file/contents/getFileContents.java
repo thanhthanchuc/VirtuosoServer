@@ -35,4 +35,19 @@ public class getFileContents {
 		}
 		return list;
 	}
+	
+	public static String getCountryDetail(String fileName) {
+		String data = "";
+		File file = new File(fileName);
+		try(Scanner inputStream = new Scanner(file)) {
+			while (inputStream.hasNext()) {
+				data += inputStream.nextLine();
+				//Truong hop data co dang chua ki tu ". VD: "HaNoi"
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return data;
+	}
 }

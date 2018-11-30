@@ -3,6 +3,8 @@ package file.contents;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+import model.Country;
+
 public class ListData {
 	private static ArrayList<String> listCity;
 	private static ArrayList<String> listCountry;
@@ -52,7 +54,32 @@ public class ListData {
 		return listLastName;
 	}
 	
+	//Vi so luong country co han va lai it detail nen ta se tao luon list country o day va se khong random country nua.
+	public static ArrayList<Country> country() {
+		String[] arr = {"Ashia", "Athea", "Covania", "Emain", "Ogria", "Omen", "Osium", "Oxtrad", "Toria", "Udro", "USA", "Viet Nam"};
+		ArrayList<String> listDetail = new ArrayList<>();
+		listDetail.add(getFileContents.getCountryDetail(getPathFile.pathAshiaDetail));
+		listDetail.add(getFileContents.getCountryDetail(getPathFile.pathAtheaDetail));
+		listDetail.add(getFileContents.getCountryDetail(getPathFile.pathCovaniaDetail));
+		listDetail.add(getFileContents.getCountryDetail(getPathFile.pathEmainDetail));
+		listDetail.add(getFileContents.getCountryDetail(getPathFile.pathOgriaDetail));
+		listDetail.add(getFileContents.getCountryDetail(getPathFile.pathOmenDetail));
+		listDetail.add(getFileContents.getCountryDetail(getPathFile.pathOsiumDetail));
+		listDetail.add(getFileContents.getCountryDetail(getPathFile.pathOxtradDetail));
+		listDetail.add(getFileContents.getCountryDetail(getPathFile.pathToriaDetail));
+		listDetail.add(getFileContents.getCountryDetail(getPathFile.pathUderDetail));
+		listDetail.add(getFileContents.getCountryDetail(getPathFile.pathUsaDetail));
+		listDetail.add(getFileContents.getCountryDetail(getPathFile.pathVietnamDetail));
+		ArrayList<Country> list = new ArrayList<>();
+		for(int i = 0; i<listDetail.size(); i++) {
+			list.add(new Country(arr[i], listDetail.get(i)));
+		}
+		return list;
+	}
+	
 	public static void main(String[] args) throws FileNotFoundException {
-		System.out.println(ListPositions());
+		for (Country country : country()) {
+			System.out.println(country.Name() + " " +country.Detail());
+		}
 	}
 }
