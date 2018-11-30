@@ -19,7 +19,7 @@ public class VirtuosoConnector {
 		conn = myRepository.getConnection();
 		vf = SimpleValueFactory.getInstance();
 	}
-
+	
 	public Boolean addRescourse(IRI subject, IRI predicate, IRI object) {
 		try {
 			conn.add(vf.createStatement(subject, predicate, object));
@@ -28,8 +28,8 @@ public class VirtuosoConnector {
 			return false;
 		}
 	}
-
-	public boolean addLiteral(IRI subject, IRI predicate, Literal object) {
+	
+	public boolean addRescourse(IRI subject, IRI predicate, Literal object) {
 		try {
 			conn.add(vf.createStatement(subject, predicate, object));
 			return true;
