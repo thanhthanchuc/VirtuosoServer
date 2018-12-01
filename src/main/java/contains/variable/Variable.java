@@ -23,8 +23,13 @@ public class Variable {
 //
 //	public static final IRI WATCH = getIRI("Watch");
 //
-//	public static final IRI COME = getIRI("Come");
-
+	//Toi
+	public static final IRI COME = getIRI("Come");
+	//Tham du
+	public static final IRI ATTEND = getIRI("Attend");
+	
+	//To chuc boi
+	public static final IRI HOSTED = getIRI("Hosted by");
 	/**
 	 * Creates a new {@link IRI} with this vocabulary's namespace for the given
 	 * local name.
