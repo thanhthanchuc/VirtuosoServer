@@ -8,13 +8,13 @@ public class RandomEventGenerator extends GetRandom {
 	private String detail;
 	private String time;
 	
-	private RandomEventGenerator() {
+	public RandomEventGenerator() {
 		this.name = getRandomFromList(ListData.listEvent());
 		//Su dung tam detail cua person cho event
 		this.detail = getRandomFromList(ListData.listDetailPerson());
 		this.time = getRandomFromList(ListData.listTime());
 	}
-	public static Event generateRandomEvent() {
+	public Event generateRandomEvent() {
 		RandomEventGenerator rde = new RandomEventGenerator();
 		return new Event(rde.name, rde.detail, rde.time);
 	}

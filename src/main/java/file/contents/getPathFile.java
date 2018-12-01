@@ -7,7 +7,7 @@ public class getPathFile {
 	protected static final String pathFirstName = "src/main/java/file/ListFirstName.txt";
 	protected static final String pathLastName = "src/main/java/file/ListLastName.txt";
 	protected static final String pathEvent = "src/main/java/file/Event.txt";
-	protected static final String pathTime = "src/main/java/file/Tiem.txt";
+	protected static final String pathTime = "src/main/java/file/Time.txt";
 	
 	// protected static final String pathVerbForIRI =
 	// "src/main/java/file/list_contents/ListVerbForIRI.txt";

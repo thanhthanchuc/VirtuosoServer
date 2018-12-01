@@ -1,7 +1,5 @@
 package contains.tripleStatement.IRI;
 
-import javax.xml.soap.Detail;
-
 import org.eclipse.rdf4j.model.IRI;
 
 import contains.variable.Variable;
@@ -19,6 +17,7 @@ public class CityLocationIRI {
 	}
 	
 	public CityLocationIRI() {
+		rd = new RandomCityLocationGenerator();
 		city = rd.generateRandomCityLication();
 		NAME = IRI(city.Name());
 		DETAIL = IRI(city.Detail());

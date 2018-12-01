@@ -1,5 +1,7 @@
 package Project.Virtuoso;
 
+import java.util.Random;
+
 import contains.tripleStatement.IRI.PersonIRI;
 import contains.variable.VirtuosoVariable;
 import virtuoso.connectivity.VirtuosoConnector;
@@ -12,13 +14,17 @@ public class App
 {
     public static void main( String[] args )
     {
-    	VirtuosoConnector vc = new VirtuosoConnector(VirtuosoVariable.HOST, VirtuosoVariable.USERNAME, VirtuosoVariable.PASSWORD);
-    	PersonIRI p;
-    	//Add 100 random record
-    	for(int i = 0; i<100; i++) {
-    		p = new PersonIRI();
-    		vc.addRescourse(p.NAME, p.POSITION, p.DETAIL);
-        	System.out.println(p.NAME + " " + p.POSITION + " " + p.DETAIL);
+    	RandomPushToDb add;
+    	Random rd;
+    	
+    	//Add 10000 random record
+    	for(int i = 0; i<10000; i++) {
+    		add = new RandomPushToDb();
+    		rd = new Random();
+    		int num = rd.nextInt(3);
+    		add.randomData(num);
+    		if(i%1000 == 0)
+    			System.out.println(i);
     	}
     }
 }

@@ -9,7 +9,7 @@ public class RandomCityLocationGenerator extends GetRandom {
 	private String name;
 	private String detail;
 	
-	private RandomCityLocationGenerator() {
+	public RandomCityLocationGenerator() {
 		try {
 			this.name = getRandomFromList(ListData.ListCitys());
 		} catch (FileNotFoundException e) {

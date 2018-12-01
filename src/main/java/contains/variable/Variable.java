@@ -25,11 +25,15 @@ public class Variable {
 //
 	//Toi
 	public static final IRI COME = getIRI("Come");
+	
 	//Tham du
 	public static final IRI ATTEND = getIRI("Attend");
 	
 	//To chuc boi
 	public static final IRI HOSTED = getIRI("Hosted by");
+	
+	//To chuc vao luc
+	public static final IRI TIME = getIRI("at");
 	/**
 	 * Creates a new {@link IRI} with this vocabulary's namespace for the given
 	 * local name.
