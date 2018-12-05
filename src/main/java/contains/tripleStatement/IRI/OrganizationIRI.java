@@ -3,9 +3,7 @@ package contains.tripleStatement.IRI;
 import org.eclipse.rdf4j.model.IRI;
 
 import contains.variable.Variable;
-import model.Country;
 import model.Organization;
-import rdservice.model.RandomCountryGenerator;
 import rdservice.model.RandomOrganizationGenerator;
 
 public class OrganizationIRI {

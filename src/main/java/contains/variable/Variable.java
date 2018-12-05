@@ -33,7 +33,16 @@ public class Variable {
 	public static final IRI HOSTED = getIRI("Hosted by");
 	
 	//To chuc vao luc
-	public static final IRI TIME = getIRI("at");
+	public static final IRI TIME = getIRI("At");
+	
+	//Dia diem
+	public static final IRI WHERE = getIRI("Where");
+	
+	//detail
+	public static final IRI DETAIL = getIRI("Detail");
+	
+	//Position: Chuc vu
+	public static final IRI POSITION = getIRI("Position");
 	/**
 	 * Creates a new {@link IRI} with this vocabulary's namespace for the given
 	 * local name.
@@ -49,10 +58,6 @@ public class Variable {
 	
 	public static IRI getIRI(String namespace, String localName) {
 		return SimpleValueFactory.getInstance().createIRI(namespace, localName);
-	}
-	
-	private static Literal getLiteral(String localName) {
-		return SimpleValueFactory.getInstance().createLiteral(NAMESPACE, localName);
 	}
 	
 	public static Literal getLiteral(String namespace, String localName) {

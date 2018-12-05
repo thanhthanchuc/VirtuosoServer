@@ -4,9 +4,7 @@ import org.eclipse.rdf4j.model.IRI;
 
 import contains.variable.Variable;
 import model.Country;
-import model.Event;
 import rdservice.model.RandomCountryGenerator;
-import rdservice.model.RandomEventGenerator;
 
 public class CountryIRI {
 	private final String NAMESPACE = "http://example.org/Country/";
