@@ -9,6 +9,7 @@ import model.Person;
 import rdservice.model.RandomPersonGenerator;
 
 public class PersonIRI {
+	private final String NAMESPACE = "http://example.org/Person/";
 	private RandomPersonGenerator rp;
 	private Person p;
 	public IRI NAME;
@@ -22,8 +23,8 @@ public class PersonIRI {
 			e.printStackTrace();
 		}
 		p = rp.generateRandomPerson();
-		NAME = Variable.getIRI(p.Name());
-		POSITION = Variable.getIRI(p.Position());
-		DETAIL = Variable.getIRI(p.Detail());
+		NAME = Variable.getIRI(NAMESPACE, p.Name());
+		POSITION = Variable.getIRI(NAMESPACE, p.Position());
+		DETAIL = Variable.getIRI(NAMESPACE, p.Detail());
 	}
 }

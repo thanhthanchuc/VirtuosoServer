@@ -7,6 +7,7 @@ import model.Event;
 import rdservice.model.RandomEventGenerator;
 
 public class EventIRI {
+	private final String NAMESPACE = "http://example.org/Event/";
 	private RandomEventGenerator rd;
 	private Event event;
 	public IRI NAME;
@@ -14,7 +15,7 @@ public class EventIRI {
 	public IRI TIME;
 	
 	private IRI IRI(String context) {
-		return Variable.getIRI(context);
+		return Variable.getIRI(NAMESPACE, context);
 	}
 	
 	public EventIRI() {

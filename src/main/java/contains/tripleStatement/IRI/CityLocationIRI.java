@@ -7,13 +7,14 @@ import model.CityLocation;
 import rdservice.model.RandomCityLocationGenerator;
 
 public class CityLocationIRI {
+	private final String NAMESPACE = "http://example.org/City/";
 	private RandomCityLocationGenerator rd;
 	private CityLocation city;
 	public IRI NAME;
 	public IRI DETAIL;
 	
 	private IRI IRI(String context) {
-		return Variable.getIRI(context);
+		return Variable.getIRI(NAMESPACE, context);
 	}
 	
 	public CityLocationIRI() {

@@ -43,11 +43,19 @@ public class Variable {
 	 * @return an IRI using the http://example.org/ namespace and the given local
 	 *         name.
 	 */
-	public static IRI getIRI(String localName) {
+	private static IRI getIRI(String localName) {
 		return SimpleValueFactory.getInstance().createIRI(NAMESPACE, localName);
 	}
 	
-	public static Literal getLiteral(String localName) {
+	public static IRI getIRI(String namespace, String localName) {
+		return SimpleValueFactory.getInstance().createIRI(namespace, localName);
+	}
+	
+	private static Literal getLiteral(String localName) {
 		return SimpleValueFactory.getInstance().createLiteral(NAMESPACE, localName);
+	}
+	
+	public static Literal getLiteral(String namespace, String localName) {
+		return SimpleValueFactory.getInstance().createLiteral(namespace, localName);
 	}
 }

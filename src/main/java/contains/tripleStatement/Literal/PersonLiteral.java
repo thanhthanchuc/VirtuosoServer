@@ -9,6 +9,7 @@ import model.Person;
 import rdservice.model.RandomPersonGenerator;
 
 public class PersonLiteral {
+	private final String NAMESPACE = "http://example.com/Person/";
 	private RandomPersonGenerator rp;
 	private Person p;
 	
@@ -21,7 +22,7 @@ public class PersonLiteral {
 		p = rp.generateRandomPerson();
 	}
 	
-	public Literal NAME = Variable.getLiteral(p.Name());
-	public Literal POSITION = Variable.getLiteral(p.Position());
-	public Literal DETAIL = Variable.getLiteral(p.Detail());
+	public Literal NAME = Variable.getLiteral(NAMESPACE, p.Name());
+	public Literal POSITION = Variable.getLiteral(NAMESPACE, p.Position());
+	public Literal DETAIL = Variable.getLiteral(NAMESPACE, p.Detail());
 }
