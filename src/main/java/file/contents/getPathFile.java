@@ -9,8 +9,8 @@ public class getPathFile {
 	protected static final String pathEvent = "src/main/java/file/Event.txt";
 	protected static final String pathTime = "src/main/java/file/Time.txt";
 	
-	// protected static final String pathVerbForIRI =
-	// "src/main/java/file/list_contents/ListVerbForIRI.txt";
+	protected static final String pathVerbForIRI =
+	 "src\\main\\java\\file\\ListVerbForIRI.txt";
 	protected static final String pathPosition = "src/main/java/file/ListPosition.txt";
 	protected static final String pathDetailPerson = "src/main/java/file/PersonDetail.txt";
 	protected static final String pathAshiaDetail = "src/main/java/file/CountryDetail/Ashia.txt";

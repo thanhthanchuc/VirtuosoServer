@@ -15,6 +15,7 @@ public class ListData {
 	private static ArrayList<String> listDetailPerson;
 
 	public static ArrayList<String> ListVerbForIRIs() {
+		listVerbForIRI = getFileContents.getListFiles(getPathFile.pathVerbForIRI);
 		return listVerbForIRI;
 	}
 

@@ -4,7 +4,10 @@ import org.eclipse.rdf4j.model.IRI;
 import org.eclipse.rdf4j.model.Literal;
 import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
 
-public class Variable {
+import file.contents.ListData;
+import rdservice.model.GetRandom;
+
+public class Variable extends GetRandom {
 	// The full namespace: "http://example.org/".
 	public static final String NAMESPACE = "http://example.org/";
 
@@ -43,6 +46,11 @@ public class Variable {
 	
 	//Position: Chuc vu
 	public static final IRI POSITION = getIRI("Position");
+	
+	//Random IRI
+	public static IRI VerIRI() {
+		return getIRI(getRandomFromList(ListData.ListVerbForIRIs()));
+	}
 	/**
 	 * Creates a new {@link IRI} with this vocabulary's namespace for the given
 	 * local name.

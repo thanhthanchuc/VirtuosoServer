@@ -7,19 +7,21 @@ import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
 import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
 
+import contains.variable.VirtuosoVariable;
 import virtuoso.rdf4j.driver.VirtuosoRepository;
 
 public class VirtuosoConnector {
 	private static ValueFactory vf;
-	private Repository myRepository;
 	private RepositoryConnection conn;
-
-	public VirtuosoConnector(String host, String username, String password) {
-		myRepository = new VirtuosoRepository(host, username, password);
-		conn = myRepository.getConnection();
+	
+	public VirtuosoConnector(Repository rep) {
+		conn = rep.getConnection();
 		vf = SimpleValueFactory.getInstance();
 	}
 	
+	public void Close() {
+		conn.close();
+	}
 	public Boolean addRescourse(IRI subject, IRI predicate, IRI object) {
 		try {
 			conn.add(vf.createStatement(subject, predicate, object));

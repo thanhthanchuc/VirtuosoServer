@@ -6,6 +6,7 @@ public class Person extends EntityModel {
 	public Person(String firstName, String lastName, String position, String detail) {
 		super(firstName + " " + lastName, detail);
 		this.detail = detail;
+		this.position = position;
 	}
 
 	public String Position() {
