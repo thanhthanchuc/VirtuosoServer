@@ -134,6 +134,11 @@ public class RandomPushToDb {
 					case 11:
 						conn.add((vf.createStatement(rdp.random.randomIRI(), Variable.VerIRI(), rdp.random.randomIRI())));
 						break;
+					case 12:
+						conn.add(vf.createStatement(rdp.p.NAME, Variable.COME, rdp.event.TIME));
+						break;
+					case 13:
+						conn.add(vf.createStatement(rdp.country.NAME, Variable.COME, rdp.event.TIME));
 					}
 					if(i%10000 ==0 )
 						System.out.println(i + " lan");

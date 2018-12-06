@@ -1,6 +1,7 @@
 package contains.tripleStatement.IRI;
 
 import java.io.FileNotFoundException;
+import java.util.Random;
 
 import org.eclipse.rdf4j.model.IRI;
 
@@ -15,6 +16,7 @@ public class PersonIRI {
 	public IRI NAME;
 	public IRI POSITION;
 	public IRI DETAIL;
+	private Random rd;
 	
 	public PersonIRI() {
 		try {
@@ -23,8 +25,14 @@ public class PersonIRI {
 			e.printStackTrace();
 		}
 		p = rp.generateRandomPerson();
-		NAME = Variable.getIRI(NAMESPACE, p.Name());
-		POSITION = Variable.getIRI(NAMESPACE, p.Position());
-		DETAIL = Variable.getIRI(NAMESPACE, p.Detail());
+		NAME = Variable.getIRI(NAMESPACE + "Name/", p.Name());
+		POSITION = Variable.getIRI(NAMESPACE + "Position/", p.Position());
+		DETAIL = Variable.getIRI(NAMESPACE + "Detail/", p.Detail());
+	}
+	
+	public IRI getPersonIRI() {
+		rd = new Random();
+		int next = rd.nextInt(3) + 1;
+		return next == 1? NAME : next == 2? POSITION : DETAIL;
 	}
 }

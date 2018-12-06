@@ -20,9 +20,10 @@ public class RandomIRI {
 		cityIRI = new CityLocationIRI();
 	}
 	
+	//Lay ra random 1 thuc the
 	public IRI randomIRI() {
 		rd = new Random();
-		int num = rd.nextInt(5) + 1;
+		int num = rd.nextInt(11) + 1;
 		if(num == 1)
 			return eventIRI.NAME;
 		if(num == 2)
@@ -31,6 +32,14 @@ public class RandomIRI {
 			return personIRI.NAME;
 		if(num == 4)
 			return organizationIRI.NAME;
-		return cityIRI.NAME;
+		if(num == 5)
+			return cityIRI.NAME;
+		if(num == 6) 
+			return eventIRI.TIME;
+		if(num == 7) 
+			return eventIRI.DETAIL;
+		if(num == 8)
+			return personIRI.DETAIL;
+		return num == 9 ? cityIRI.DETAIL : num == 10 ? countryIRI.DETAIL : personIRI.POSITION;
 	}
 }

@@ -1,5 +1,8 @@
 package contains.variable;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import org.eclipse.rdf4j.model.IRI;
 import org.eclipse.rdf4j.model.Literal;
 import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
@@ -8,8 +11,9 @@ import file.contents.ListData;
 import rdservice.model.GetRandom;
 
 public class Variable extends GetRandom {
+	private static Random rd;
 	// The full namespace: "http://example.org/".
-	public static final String NAMESPACE = "http://example.org/";
+	public static final String NAMESPACE = "http://example.org/Relationship/";
 
 	// The prefix usually used for this vocabulary: 'ex'.
 	public static final String PREFIX = "ex";
@@ -52,6 +56,21 @@ public class Variable extends GetRandom {
 	//Random IRI
 	public static IRI VerIRI() {
 		return getIRI(getRandomFromList(ListData.ListVerbForIRIs()));
+	}
+	
+	public static IRI VerIRI(int m) {
+		ArrayList<String> listVerb = ListData.ListVerbForIRIs();
+    	ArrayList<String> arr = new ArrayList<>();
+    	
+    	int size = listVerb.size();
+    	for(int i = 0; i< m; i++) {
+    		rd = new Random();
+    		int rand = rd.nextInt(size);
+    		
+    		arr.add(listVerb.get(rand));
+    	}
+    	int m_rand = rd.nextInt(arr.size());
+    	return getIRI(arr.get(m_rand));
 	}
 	/**
 	 * Creates a new {@link IRI} with this vocabulary's namespace for the given
