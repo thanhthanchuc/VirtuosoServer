@@ -36,7 +36,7 @@ public class Variable extends GetRandom {
 	public static final IRI HOSTED = getIRI("Hosted by");
 	
 	//To chuc vao luc
-	public static final IRI TIME = getIRI("At");
+	public static final IRI TIME = getIRI("Time");
 	
 	//Dia diem
 	public static final IRI WHERE = getIRI("Where");
@@ -46,6 +46,8 @@ public class Variable extends GetRandom {
 	
 	//Position: Chuc vu
 	public static final IRI POSITION = getIRI("Position");
+	
+	public static final IRI LOCATION = getIRI("Location");
 	
 	//Random IRI
 	public static IRI VerIRI() {
