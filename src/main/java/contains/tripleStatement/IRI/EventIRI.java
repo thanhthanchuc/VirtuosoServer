@@ -23,7 +23,7 @@ public class EventIRI {
 		rd = new RandomEventGenerator();
 		event = rd.generateRandomEvent();
 		NAME = IRI(event.Name());
-		DETAIL = IRI(event.Detail());
+		DETAIL = IRI(event.getDetail());
 		TIME = IRI(event.Time());
 	}
 }

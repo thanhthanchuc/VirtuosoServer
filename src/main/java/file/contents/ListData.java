@@ -125,7 +125,7 @@ public class ListData {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		for (Country country : country()) {
-			System.out.println(country.Name() + " " + country.Detail());
+			System.out.println(country.Name() + " " + country.getDetail());
 		}
 	}
 }

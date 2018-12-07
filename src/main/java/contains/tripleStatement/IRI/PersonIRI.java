@@ -28,13 +28,14 @@ public class PersonIRI {
 		p = rp.generateRandomPerson();
 		NAME = Variable.getIRI(NAMESPACE + "Name/", p.Name());
 		POSITION = Variable.getIRI(NAMESPACE + "Position/", p.Position());
-		DETAIL = Variable.getIRI(NAMESPACE + "Detail/", p.Detail());
-		LINK = Variable.getIRI(NAMESPACE + "Link/", p.Link());
+		DETAIL = Variable.getIRI(NAMESPACE + "Detail/", p.getDetail());
+		LINK = Variable.getIRI(NAMESPACE + "Link/", p.getLink());
 	}
 
 	public IRI getPersonIRI() {
 		rd = new Random();
-		int next = rd.nextInt(3) + 1;
-		return next == 1 ? NAME : next == 2 ? POSITION : DETAIL;
+		return NAME;
+//		int next = rd.nextInt(3) + 1;
+//		return next == 1 ? NAME : next == 2 ? POSITION : DETAIL;
 	}
 }

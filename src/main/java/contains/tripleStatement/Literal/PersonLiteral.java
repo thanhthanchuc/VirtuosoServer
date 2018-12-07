@@ -21,5 +21,5 @@ public class PersonLiteral {
 		}
 		p = rp.generateRandomPerson();
 	}
-	public Literal DETAIL = Variable.getLiteral(NAMESPACE, p.Detail());
+	public Literal DETAIL = Variable.getLiteral(NAMESPACE, p.getDetail());
 }

@@ -21,6 +21,6 @@ public class CountryIRI {
 		rd = new RandomCountryGenerator();
 		country = rd.generateRandomCountry();
 		NAME = IRI(country.Name());
-		DETAIL = IRI(country.Detail());
+		DETAIL = IRI(country.getDetail());
 	}
 }

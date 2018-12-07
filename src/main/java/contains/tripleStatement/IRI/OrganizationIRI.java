@@ -21,6 +21,6 @@ public class OrganizationIRI {
 		rd = new RandomOrganizationGenerator();
 		organization = rd.generateOrganization();
 		NAME = IRI(organization.Name());
-		DETAIL = IRI(organization.Detail());
+		DETAIL = IRI(organization.getDetail());
 	}
 }

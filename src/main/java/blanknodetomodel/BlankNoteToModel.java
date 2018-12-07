@@ -51,7 +51,7 @@ public class BlankNoteToModel {
 				.setNamespace("ex", "http://example.org/")
 				.subject("ex:Thanh Nguyen")
 					.add(Variable.POSITION, "ex:Manager Deparment")
-					.add(Variable.DETAIL, rd.generateRandomPerson().Detail())
+					.add(Variable.DETAIL, rd.generateRandomPerson().getDetail())
 					//Link to blank node
 					.add("ex:BK Open Day", event)
 				.subject(event)

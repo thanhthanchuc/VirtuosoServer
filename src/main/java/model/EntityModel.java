@@ -5,12 +5,13 @@ public abstract class EntityModel {
 		this.name = name;
 		this.detail = detail;
 	}
-	//Test. Sau nay co file se add them field o day.
+
+	// Test. Sau nay co file se add them field o day.
 	protected String name;
 	protected String detail;
-	protected String link;
-	
-	public String Detail() {
+//	protected String link;
+
+	public String getDetail() {
 		return detail;
 	}
 
@@ -25,12 +26,4 @@ public abstract class EntityModel {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public String Link() {
-		return link;
-	}
-
-	public void setLink(String link) {
-		this.link = link;
-	}	
 }

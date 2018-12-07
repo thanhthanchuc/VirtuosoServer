@@ -22,7 +22,7 @@ public class CityLocationIRI {
 		rd = new RandomCityLocationGenerator();
 		city = rd.generateRandomCityLication();
 		NAME = IRI(city.Name());
-		DETAIL = IRI(city.Detail());
+		DETAIL = IRI(city.getDetail());
 	}
 	
 }

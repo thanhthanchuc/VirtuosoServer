@@ -46,16 +46,16 @@ public class RandomPersonGenerator {
 		String de = GetRandom.getRandomFromList(p.detailPerson);
 		String pLink = GetRandom.getRandomFromList(p.link);
 		String timeLink = GetRandom.getRandomFromList(p.time);
-		
-		return new Person(fn, ln, pos, de, pLink, timeLink);
+		Person ps = new Person(fn, ln, pos, de, pLink, timeLink);
+		return ps;
 	}
 
 	/* Random successfully */
 	public static void main(String[] arg) throws FileNotFoundException {
 		RandomPersonGenerator rd = new RandomPersonGenerator();
-		for(int i = 0; i< 1000; i++) {
+		for (int i = 0; i < 1000; i++) {
 			Person person = rd.generateRandomPerson();
-			System.out.println(person.Link());
+			System.out.println(person.getLink());
 		}
 	}
 }
