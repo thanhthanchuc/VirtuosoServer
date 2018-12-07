@@ -16,8 +16,9 @@ public class PersonIRI {
 	public IRI NAME;
 	public IRI POSITION;
 	public IRI DETAIL;
+	public IRI LINK;
 	private Random rd;
-	
+
 	public PersonIRI() {
 		try {
 			rp = new RandomPersonGenerator();
@@ -28,11 +29,12 @@ public class PersonIRI {
 		NAME = Variable.getIRI(NAMESPACE + "Name/", p.Name());
 		POSITION = Variable.getIRI(NAMESPACE + "Position/", p.Position());
 		DETAIL = Variable.getIRI(NAMESPACE + "Detail/", p.Detail());
+		LINK = Variable.getIRI(NAMESPACE + "Link/", p.Link());
 	}
-	
+
 	public IRI getPersonIRI() {
 		rd = new Random();
 		int next = rd.nextInt(3) + 1;
-		return next == 1? NAME : next == 2? POSITION : DETAIL;
+		return next == 1 ? NAME : next == 2 ? POSITION : DETAIL;
 	}
 }

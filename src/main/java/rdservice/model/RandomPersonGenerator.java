@@ -12,13 +12,17 @@ public class RandomPersonGenerator {
 	private ArrayList<String> lastNames;
 	private ArrayList<String> positions;
 	private ArrayList<String> detailPerson;
+	private ArrayList<String> link; // Link trich rut
+	private ArrayList<String> time; // Thoi gian trich rut
 
-	//Khi tao moi object RandomPersonGenerator, data se auto add vao list 
+	// Khi tao moi object RandomPersonGenerator, data se auto add vao list
 	public RandomPersonGenerator() throws FileNotFoundException {
 		firstNames = ListData.ListFirstNames();
 		lastNames = ListData.ListLastNames();
 		positions = ListData.ListPositions();
 		detailPerson = ListData.listDetailPerson();
+		link = ListData.listLink();
+		time = ListData.listTime();
 	}
 
 	/**
@@ -26,10 +30,10 @@ public class RandomPersonGenerator {
 	 *
 	 * @param
 	 * @return Person
-	 * @throws FileNotFoundException 
+	 * @throws FileNotFoundException
 	 */
 	public Person generateRandomPerson() {
-		//Tao person de them du lieu vao cac truong tren
+		// Tao person de them du lieu vao cac truong tren
 		RandomPersonGenerator p = null;
 		try {
 			p = new RandomPersonGenerator();
@@ -40,16 +44,18 @@ public class RandomPersonGenerator {
 		String ln = GetRandom.getRandomFromList(p.lastNames);
 		String pos = GetRandom.getRandomFromList(p.positions);
 		String de = GetRandom.getRandomFromList(p.detailPerson);
-		return new Person(fn, ln, pos, de);
+		String pLink = GetRandom.getRandomFromList(p.link);
+		String timeLink = GetRandom.getRandomFromList(p.time);
+		
+		return new Person(fn, ln, pos, de, pLink, timeLink);
 	}
-	
-	/*Random successfully*/
-//	public static void main(String[] arg) throws FileNotFoundException {
-//		RandomPersonGenerator rd = new RandomPersonGenerator();
-//		for(int i = 0; i< 100; i++) {
-//			
-//			Person person = rd.generateRandomPerson();
-//			System.out.println(person.Detail());
-//		}
-//	}
+
+	/* Random successfully */
+	public static void main(String[] arg) throws FileNotFoundException {
+		RandomPersonGenerator rd = new RandomPersonGenerator();
+		for(int i = 0; i< 1000; i++) {
+			Person person = rd.generateRandomPerson();
+			System.out.println(person.Link());
+		}
+	}
 }

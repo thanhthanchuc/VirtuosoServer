@@ -11,7 +11,7 @@ public class RandomIRI {
 	private OrganizationIRI organizationIRI;
 	private CityLocationIRI cityIRI;
 	private Random rd;
-	
+
 	public RandomIRI() {
 		eventIRI = new EventIRI();
 		countryIRI = new CountryIRI();
@@ -19,27 +19,19 @@ public class RandomIRI {
 		organizationIRI = new OrganizationIRI();
 		cityIRI = new CityLocationIRI();
 	}
-	
-	//Lay ra random 1 thuc the
+
+	// Lay ra random 1 thuc the
 	public IRI randomIRI() {
 		rd = new Random();
-		int num = rd.nextInt(11) + 1;
-		if(num == 1)
+		int num = rd.nextInt(5) + 1;
+		if (num == 1)
 			return eventIRI.NAME;
-		if(num == 2)
+		if (num == 2)
 			return countryIRI.NAME;
-		if(num == 3)
+		if (num == 3)
 			return personIRI.NAME;
-		if(num == 4)
+		if (num == 4)
 			return organizationIRI.NAME;
-		if(num == 5)
-			return cityIRI.NAME;
-		if(num == 6) 
-			return eventIRI.TIME;
-		if(num == 7) 
-			return eventIRI.DETAIL;
-		if(num == 8)
-			return personIRI.DETAIL;
-		return num == 9 ? cityIRI.DETAIL : num == 10 ? countryIRI.DETAIL : personIRI.POSITION;
+		return cityIRI.NAME;
 	}
 }

@@ -3,10 +3,11 @@ package model;
 public class Person extends EntityModel {
 	private String position;
 	
-	public Person(String firstName, String lastName, String position, String detail) {
+	public Person(String firstName, String lastName, String position, String detail, String link, String timeLink) {
 		super(firstName + " " + lastName, detail);
 		this.detail = detail;
 		this.position = position;
+		this.link = link + " _ ( "+ timeLink + " ).";
 	}
 
 	public String Position() {
@@ -16,5 +17,4 @@ public class Person extends EntityModel {
 	public void setPosition(String position) {
 		this.position = position;
 	}
-	
 }

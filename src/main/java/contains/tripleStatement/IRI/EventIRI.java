@@ -13,6 +13,7 @@ public class EventIRI {
 	public IRI NAME;
 	public IRI DETAIL;
 	public IRI TIME;
+	public IRI LINK;
 	
 	private IRI IRI(String context) {
 		return Variable.getIRI(NAMESPACE, context);

@@ -2,6 +2,7 @@
 Tokmok
 Fengshan
 Gemo
+Hà Nội
 Nanjing
 El Valle del Espíritu Santo
 Santa Maria
@@ -18,9 +19,11 @@ Khao Yoi
 Dahua
 Dovhe
 Gengzhuang
+Tp. Hồ Chí Minh
 T’ianet’i
 Ikar
 Kolape
+Hà Nội
 Stalowa Wola
 Haukivuori
 Fontenay-sous-Bois
@@ -48,6 +51,7 @@ Libei
 Hihyā
 Pidigan
 Yingcheng
+Hà Nội
 Bururi
 Leyuan
 Skinnskatteberg
@@ -97,6 +101,7 @@ Rogoźnik
 Lipahan
 Mattawa
 Boshi
+Hà Nội
 Paris 08
 Kaminoyama
 Bonriki Village
@@ -126,6 +131,7 @@ Nirasaki
 Cupira
 Ngajum
 Petit Valley
+Hà Nội
 Garunggang
 Boljoon
 Roberval
@@ -165,6 +171,7 @@ T’aebaek
 Huzhen
 Alofi
 Fermelã
+Hà Nội
 Majalengka
 Depok
 Stepnogorsk
@@ -197,6 +204,7 @@ Kratovo
 Kunda
 Vũ Quang
 Popovi
+Hà Nội
 Jinshanzui
 Ribeirópolis
 Matozinhos
@@ -242,6 +250,7 @@ Barranca
 Fradelos
 Quipot
 Taverny
+Hà Nội
 Anao
 Kariaí
 Nangen

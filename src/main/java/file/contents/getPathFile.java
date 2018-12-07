@@ -1,18 +1,27 @@
 package file.contents;
 
 public class getPathFile {
-	//Change here
 	protected static final String pathCity = "src/main/java/file/ListCity.txt";
-	protected static final String pathCountry = "src/main/java/file/ListCountry.txt";
+	protected static final String pathLocationDetail = "src/main/java/file/LocationDetail.txt";
+
 	protected static final String pathFirstName = "src/main/java/file/ListFirstName.txt";
 	protected static final String pathLastName = "src/main/java/file/ListLastName.txt";
-	protected static final String pathEvent = "src/main/java/file/Event.txt";
-	protected static final String pathTime = "src/main/java/file/Time.txt";
-	
-	protected static final String pathVerbForIRI =
-	 "src\\main\\java\\file\\ListVerbForIRI.txt";
 	protected static final String pathPosition = "src/main/java/file/ListPosition.txt";
 	protected static final String pathDetailPerson = "src/main/java/file/PersonDetail.txt";
+
+	protected static final String pathEvent = "src/main/java/file/Event.txt";
+	protected static final String pathEventDetail = "src/main/java/file/LocationDetail.txt"; // dùng tạm
+	
+	protected static final String pathOrganization = "src/main/java/file/Organization.txt ";
+	protected static final String pathOrganizationDetail = "src/main/java/file/LocationDetail.txt"; // dùng tạm
+	
+	protected static final String pathTime = "src/main/java/file/Time.txt";
+	
+	protected static final String pathLink = "src/main/java/file/Link.txt";		
+
+	protected static final String pathVerbForIRI = "src\\main\\java\\file\\ListVerbForIRI.txt";		//quan hệ
+
+	protected static final String pathCountry = "src/main/java/file/ListCountry.txt";
 	protected static final String pathAshiaDetail = "src/main/java/file/CountryDetail/Ashia.txt";
 	protected static final String pathAtheaDetail = "src/main/java/file/CountryDetail/Athea.txt";
 	protected static final String pathCovaniaDetail = "src/main/java/file/CountryDetail/Athea.txt";

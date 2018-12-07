@@ -17,19 +17,7 @@ public class Variable extends GetRandom {
 
 	// The prefix usually used for this vocabulary: 'ex'.
 	public static final String PREFIX = "ex";
-
-//	/**
-//	 * The <code>ex:creatorOf</code> property.
-//	 */
-//	public static final IRI CREATOR_OF = getIRI("creatorOf");
-//
-//	/**
-//	 * The <code>ex:Artist</code> class.
-//	 */
-//	public static final IRI ARTIST = getIRI("Artist");
-//
-//	public static final IRI WATCH = getIRI("Watch");
-//
+	
 	//Toi
 	public static final IRI COME = getIRI("Come");
 	

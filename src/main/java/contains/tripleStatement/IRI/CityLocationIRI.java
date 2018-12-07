@@ -12,6 +12,7 @@ public class CityLocationIRI {
 	private CityLocation city;
 	public IRI NAME;
 	public IRI DETAIL;
+	public IRI LINK;
 	
 	private IRI IRI(String context) {
 		return Variable.getIRI(NAMESPACE, context);
