@@ -20,7 +20,7 @@ public class getFileContents {
 					list.add(data);
 					continue;
 				}
-				if(data.length() != 0 && !data.contains(",")) {
+				if(data.length() != 0) {	// && !data.contains(",") Tai sao cho nay lai ko cho add data chua ","
 					list.add(data);
 					continue;
 				}

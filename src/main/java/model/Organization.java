@@ -2,16 +2,13 @@ package model;
 
 public class Organization extends EntityModel {
 	public String headquarters;
-	public Organization(String name, String detail, String hq) {
-		super(name, detail);
+
+	public Organization(String name, String hq, String detail, String link, String timeLink) {
+		super(name, detail, link + " _ (" + timeLink + ").");
 		this.headquarters = hq;
 	}
-	
-	public String Headquarters() {
+
+	public String getHeadquarters() {
 		return this.headquarters;
-	}
-	
-	public void setHeadquerters(String hq) {
-		this.headquarters = hq;
 	}
 }

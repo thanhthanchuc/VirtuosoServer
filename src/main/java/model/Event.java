@@ -1,19 +1,13 @@
 package model;
 
 public class Event extends EntityModel {
-	public Event(String name, String detail, String time) {
-		super(name, detail);
+	private String time;
+	public Event(String name, String detail, String link , String timeLink, String time) {
+		super(name, detail,link + " _ ("+ timeLink + ").");
 		this.time = time;
 	}
-	
-	private String time;
 
-	public String Time() {
+	public String getTime() {
 		return time;
 	}
-
-	public void setTime(String time) {
-		this.time = time;
-	}
-	
 }

@@ -2,6 +2,7 @@ package file.contents;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Random;
 
 import model.Country;
 
@@ -69,10 +70,7 @@ public class ListData {
 		return listLocationDetail;
 	}
 	/*----------------------------Country----------------------------*/
-	public static ArrayList<String> ListCountrys() throws FileNotFoundException {
-		ListData.listCountry = getFileContents.getListFiles(getPathFile.pathCountry);
-		return listCountry;
-	}
+
 	// Vi so luong country co han va lai it detail nen ta se tao luon list country o
 	// day va se khong random country nua.
 	public static ArrayList<Country> country() {
@@ -93,7 +91,7 @@ public class ListData {
 		listDetail.add(getFileContents.getCountryDetail(getPathFile.pathVietnamDetail));
 		ArrayList<Country> list = new ArrayList<>();
 		for (int i = 0; i < listDetail.size(); i++) {
-			list.add(new Country(arr[i], listDetail.get(i)));
+			list.add(new Country(arr[i], listDetail.get(i), link(),time()));
 		}
 		return list;
 	}
@@ -112,10 +110,22 @@ public class ListData {
 		listTime = getFileContents.getListFiles(getPathFile.pathTime);
 		return listTime;
 	}
+	
+	private static String time() {
+		Random rd = new Random();
+		int n = rd.nextInt(listTime().size());
+		return listTime().get(n);
+	}
 	/*----------------------------Link------------------------------------*/
 	public static ArrayList<String> listLink() {
 		listLink = getFileContents.getListFiles(getPathFile.pathLink);
 		return listLink;
+	}
+	
+	private static String link() {
+		Random rd = new Random();
+		int n = rd.nextInt(listLink().size());
+		return listLink().get(n);
 	}
 	/*----------------------------Relationship----------------------------*/
 	public static ArrayList<String> ListVerbForIRIs() {
@@ -125,7 +135,11 @@ public class ListData {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		for (Country country : country()) {
+<<<<<<< HEAD
 			System.out.println(country.Name() + " " + country.getDetail());
+=======
+			System.out.println(country.getName() + " " + country.getDetail());
+>>>>>>> Phuc
 		}
 	}
 }

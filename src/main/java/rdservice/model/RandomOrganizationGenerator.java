@@ -1,29 +1,62 @@
 package rdservice.model;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.ValueFactory;
+import org.eclipse.rdf4j.repository.RepositoryConnection;
+
+import contains.variable.Variable;
 import file.contents.ListData;
-import model.CityLocation;
 import model.Organization;
+import virtuoso.connectivity.VirtuosoConnector;
 
 public class RandomOrganizationGenerator extends GetRandom {
-	private String name;
-	private String detail;
-	private String headquater;
-	
-	public RandomOrganizationGenerator() {
+	private final String NAMESPACE = "http://example.org/Organization/";
+
+	private ArrayList<String> organization;
+	private ArrayList<String> headquarters;
+	private ArrayList<String> organizationDetail;
+	private ArrayList<String> link; // Link trich rut
+	private ArrayList<String> time; // Thoi gian trich rut
+
+	// Khi tao moi object RandomPersonGenerator, data se auto add vao list
+	public RandomOrganizationGenerator() throws FileNotFoundException {
+		organization = ListData.listOrganization();
+		headquarters = ListData.ListCitys();
+		organizationDetail = ListData.listOrganizationDetail();
+		link = ListData.listLink();
+		time = ListData.listTime();
+	}
+
+	public Organization generateRandomOrganization() {
+		// Tao person de them du lieu vao cac truong tren
+		RandomOrganizationGenerator org = null;
 		try {
-			this.name = getRandomFromList(ListData.ListCitys());
-			this.headquater = getRandomFromList(ListData.ListCitys());
+			org = new RandomOrganizationGenerator();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		this.detail = getRandomFromList(ListData.listDetailPerson());
+		String name = GetRandom.getRandomFromList(org.organization);
+		String hp = GetRandom.getRandomFromList(org.headquarters);
+		String detail = GetRandom.getRandomFromList(org.organizationDetail);
+		String oLink = GetRandom.getRandomFromList(org.link);
+		String timeLink = GetRandom.getRandomFromList(org.time);
+		return new Organization(name, hp, detail, oLink, timeLink);
 	}
-	
-	public Organization generateOrganization() {
-		RandomOrganizationGenerator rd = new RandomOrganizationGenerator();
-		return new Organization(rd.name, rd.detail, rd.headquater);
+
+
+	public IRI createIriAndPush(Organization org, RepositoryConnection conn, ValueFactory vf) {
+		org = generateRandomOrganization();
+		IRI name = Variable.getIRI(NAMESPACE, org.getName());
+		IRI hq = Variable.getIRI(NAMESPACE, "Headquarters");
+		IRI detail = Variable.getIRI(NAMESPACE, "Detail");
+		IRI link = Variable.getIRI(NAMESPACE, "Link");
+		conn.add(name, hq, vf.createLiteral(org.getHeadquarters()));
+		conn.add(name, detail, vf.createLiteral(org.getDetail()));
+		conn.add(name, link, vf.createLiteral(org.getLink()));
+		return name;
 	}
+
 }
