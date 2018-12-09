@@ -1,27 +1,39 @@
 package rdservice.model;
 
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Random;
 
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.ValueFactory;
+import org.eclipse.rdf4j.repository.RepositoryConnection;
+
+import contains.variable.Variable;
 import file.contents.ListData;
 import model.Country;
+import model.Event;
 
-public class RandomCountryGenerator {
-	
-	//random
-	private static Random rand = new Random();
-	
-	public Country generateRandomCountry() {
-		int rd = rand.nextInt(ListData.country().size());
-		return ListData.country().get(rd);
+public class RandomCountryGenerator implements EntityModel{
+
+	private ArrayList<Country> Countrys;
+	private final String NAMESPACE = "http://example.org/Country/";
+	public RandomCountryGenerator() {
+		this.Countrys = ListData.country();
 	}
-	
-	//test
-//	public static void main(String[] args) {
-//		RandomCountryGenerator rd = null;
-//		for(int i = 0; i<100; i++) {
-//			rd = new RandomCountryGenerator();
-//			System.out.println(rd.generateRandomCountry().Name());
-//		}
-//		
-//	}
+
+	private Country generateRandomCountry() {
+		Random rd = new Random();
+		int n = rd.nextInt(Countrys.size());
+		return Countrys.get(n);
+	}
+
+	public IRI createIriAndPush(Country c, RepositoryConnection conn, ValueFactory vf) {
+		c = generateRandomCountry();
+		IRI name = Variable.getIRI(NAMESPACE, c.getName());
+		IRI detail = Variable.getIRI(NAMESPACE, "Detail");
+		IRI link = Variable.getIRI(NAMESPACE, "Link");
+		conn.add(name, detail, vf.createLiteral(c.getDetail()));
+		conn.add(name, link, vf.createLiteral(c.getLink()));
+		return name;
+	}
 }
