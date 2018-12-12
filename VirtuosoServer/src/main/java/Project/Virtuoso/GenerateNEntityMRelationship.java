@@ -79,8 +79,10 @@ public class GenerateNEntityMRelationship {
 		IRI rel = null;
 		ArrayList<IRI> listEntity = new ArrayList<>();
 		for (int i = 0; i < k; i++) {
-			for (int j = 0; j < n; j++) {
+			for (int j = 1; j <= n / k; j++) {
 				listEntity.add(ramdomEntity(conn, vf));
+				if (j == n / k)
+					System.out.println(i * n / k + j);
 			}
 			for (int t = 0; t < m / k; t++) {
 				int c1 = rd.nextInt(listEntity.size());
