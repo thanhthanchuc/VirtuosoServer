@@ -3,7 +3,6 @@ package file.contents;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Random;
-
 import model.Country;
 
 public class ListData {
@@ -18,8 +17,6 @@ public class ListData {
 	private static ArrayList<String> listCity;
 	private static ArrayList<String> listLocationDetail;
 
-	private static ArrayList<String> listCountry;
-
 	private static ArrayList<String> listEvent;
 	private static ArrayList<String> listEventDetail;
 
@@ -29,9 +26,6 @@ public class ListData {
 
 	private static ArrayList<String> listLink;
 	
-
-	//Khong can thiet set method. Khi goi out ham nay, data se tu dong duoc tao tu file txt.
-	//Hoac co the tao construcor de thay the cach nay
 	/*----------------------------Person----------------------------*/
 	public static ArrayList<String> ListFirstNames() throws FileNotFoundException {
 		ListData.listFirstName = getFileContents.getListFiles(getPathFile.pathFirstName);
@@ -71,8 +65,10 @@ public class ListData {
 	}
 	/*----------------------------Country----------------------------*/
 
-	// Vi so luong country co han va lai it detail nen ta se tao luon list country o
-	// day va se khong random country nua.
+	/**
+	 * Vì số lượng có hạn và mỗi country lại gắn luôn với 1 detail nên ta sẽ ghép Country với detail luôn
+	 * @return
+	 */
 	public static ArrayList<Country> country() {
 		String[] arr = { "Ashia", "Athea", "Covania", "Emain", "Ogria", "Omen", "Osium", "Oxtrad", "Toria", "Udro",
 				"USA", "Viet Nam" };
@@ -138,7 +134,11 @@ public class ListData {
 		listVerbForIRI = getFileContents.getListFiles(getPathFile.pathVerbForIRI);
 		return listVerbForIRI;
 	}
-
+	/**
+	 * Test Country and detail
+	 * @param args
+	 * @throws FileNotFoundException
+	 */
 	public static void main(String[] args) throws FileNotFoundException {
 		for (Country country : country()) {
 			System.out.println(country.getName() + " " + country.getDetail());

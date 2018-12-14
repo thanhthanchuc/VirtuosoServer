@@ -1,4 +1,4 @@
-package virtuoso.connectivity;
+package virtuoso.connection;
 
 import org.eclipse.rdf4j.model.IRI;
 import org.eclipse.rdf4j.model.Literal;

@@ -2,17 +2,15 @@ package rdservice.model;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-
 import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.model.ValueFactory;
-import org.eclipse.rdf4j.repository.RepositoryConnection;
-
 import contains.variable.Variable;
 import file.contents.ListData;
 import model.Organization;
 
 
-public class RandomOrganizationGenerator extends GetRandom implements EntityModel{
+public class RandomOrganizationGenerator extends GetRandom implements DataLink{
 	private final String NAMESPACE = "http://example.org/Organization/";
 
 	private ArrayList<String> organization;
@@ -43,15 +41,15 @@ public class RandomOrganizationGenerator extends GetRandom implements EntityMode
 	}
 
 
-	public IRI createIriAndPush(RepositoryConnection conn, ValueFactory vf) {
+	public IRI createIriEntity(ValueFactory vf, Model model) {
 		Organization org = generateRandomOrganization();
 		IRI name = Variable.getIRI(NAMESPACE, org.getName());
 		IRI hq = Variable.getIRI(NAMESPACE, "Headquarters");
 		IRI detail = Variable.getIRI(NAMESPACE, "Detail");
 		IRI link = Variable.getIRI(NAMESPACE, "Link");
-		conn.add(name, hq, vf.createLiteral(org.getHeadquarters()));
-		conn.add(name, detail, vf.createLiteral(org.getDetail()));
-		conn.add(name, link, vf.createLiteral(org.getLink()));
+		model.add(name, hq, vf.createLiteral(org.getHeadquarters()));
+		model.add(name, detail, vf.createLiteral(org.getDetail()));
+		model.add(name, link, vf.createLiteral(org.getLink()));
 		return name;
 	}
 

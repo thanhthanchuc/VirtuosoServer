@@ -1,10 +1,10 @@
-package Project.Virtuoso;
+package virtuoso.main;
 
 import org.eclipse.rdf4j.query.BindingSet;
 import org.eclipse.rdf4j.query.TupleQuery;
 import org.eclipse.rdf4j.query.TupleQueryResult;
 
-import virtuoso.connectivity.VirtuosoConnector;
+import virtuoso.connection.VirtuosoConnector;
 
 public class Query {
 	VirtuosoConnector vc;
