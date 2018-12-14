@@ -66,22 +66,6 @@ public class GenerateNEntityMRelationship {
 		return entity;
 	}
 
-//	private static int ucln(int a, int b) {
-//		// Nếu a = 0 => ucln(a,b) = b
-//		// Nếu b = 0 => ucln(a,b) = a
-//		if (a == 0 || b == 0) {
-//			return a + b;
-//		}
-//		while (a != b) {
-//			if (a > b) {
-//				a -= b; // a = a - b
-//			} else {
-//				b -= a;
-//			}
-//		}
-//		return a; // return a or b, bởi vì lúc này a và b bằng nhau
-//	}
-
 	/**
 	 * Hàm này sẽ tạo ra hệ số chia nhỏ k nếu như n và m quá lớn
 	 * 
@@ -89,23 +73,33 @@ public class GenerateNEntityMRelationship {
 	 * @param m
 	 * @return
 	 */
-//	private int divide(int n, int m) {
-//		int k = 1;
-//		if (n <= 10000 && m <= 10000) {
-//			return 1;
-//		} else {
-//			if (n < m) {
-//				
-//				int c = m % 10000 ==0 ? 
-//
-//			} else {
-//				while (n / k < 10000 && n % k == 0) {
-//					k = k * 2;
-//				}
-//			}
-//		}
-//		return k;
-//	}
+	private int divide(int n, int m) {
+		int k = 1;
+		int c = 1;
+		if (n <= 20000 && m <= 20000) {
+			return 1;
+		} else {
+			if (n > m) {
+				c = n % 10000 == 0 ? n / 10000 : n / 10000 + 1;
+				for (int t = c; t >= 1; t--) {
+					if (m % t == 0 && n % t == 0) {
+						k = t;
+						break;
+					}
+				}
+
+			} else {
+				c = m % 10000 == 0 ? m / 10000 : m / 10000 + 1;
+				for (int t = c; t >= 1; t--) {
+					if (m % t == 0 && n % t == 0) {
+						k = t;
+						break;
+					}
+				}
+			}
+		}
+		return k;
+	}
 
 	/**
 	 * @param n    = số thực thể
@@ -114,35 +108,49 @@ public class GenerateNEntityMRelationship {
 	 * @param vf
 	 */
 	public void generateNM(int n, int m, RepositoryConnection conn, ValueFactory vf) {
+		int k = divide(n, m);
 		Random rd = new Random();
 		Model model = new TreeModel();
 		ArrayList<IRI> listEntity = new ArrayList<>();
 		IRI entity1 = null;
 		IRI entity2 = null;
 		IRI rel = null;
-
-		for (int i = 1; i <= n; i++) {
-			/**
-			 * add Entity vào model Đồng thời add định danh vào listEntity
-			 */
-			listEntity.add(ramdomEntity(conn, vf, model));
-			if (i % 1000 == 0) {
-				System.out.println(i);
+		int sn = n / k;
+		int sm = m / k;
+		for (int i = 0; i < k; i++) {
+			for (int j = 1; j <= sn; j++) {
+				/**
+				 * add Entity vào model Đồng thời add định danh vào listEntity
+				 */
+				listEntity.add(ramdomEntity(conn, vf, model));
+				if (j % 1000 == 0) {
+					System.out.println(i *sn + j);
+				}
 			}
-		}
-		for (int j = 0; j < m; j++) {
-			int c1 = rd.nextInt(listEntity.size());
-			entity1 = listEntity.get(c1);
-			int c2 = 0;
-			do {
-				c2 = rd.nextInt(listEntity.size());
-			} while (c2 == c1);
-			entity2 = listEntity.get(c2);
-			rel = rdR.generateRelationship();
-			model.add(vf.createStatement(entity1, rel, entity2));
+			for (int t = 0; t < sm; t++) {
+				int c1 = rd.nextInt(listEntity.size());
+				entity1 = listEntity.get(c1);
+				int c2 = 0;
+				do {
+					c2 = rd.nextInt(listEntity.size());
+				} while (c2 == c1);
+				entity2 = listEntity.get(c2);
+				rel = rdR.generateRelationship();
+				model.add(vf.createStatement(entity1, rel, entity2));
 //				System.out.println(entity1 + "\n" + rel + "\n" + entity2 + "\n");
+			}
+			conn.add(model); // add model
+			model.clear();	//reset model
+			listEntity.clear();	//reset listEntity before create new listEntity
 		}
-		conn.add(model); // add model
 		conn.close();
+	}
+
+	public static void main(String[] args) {
+		long start = System.currentTimeMillis();
+		GenerateNEntityMRelationship g = new GenerateNEntityMRelationship();
+		System.out.println(g.divide(1000000, 1000));
+		long end = System.currentTimeMillis();
+		System.out.println(end - start + "ms");
 	}
 }
