@@ -8,12 +8,12 @@ import virtuoso.connection.VirtuosoConnector;
  */
 public class Main {
 	private static VirtuosoConnector vc = new VirtuosoConnector();
-	private static GenerateNEntityMRelationship generate = new GenerateNEntityMRelationship();
 
 	public static void main(String[] args) {
 		/*
 		 * Phần này sinh dữ liệu giả lập. Hãy sinh trk khi query nếu muốn nó có nghĩa
 		 */
+//		GenerateNEntityMRelationship generate = new GenerateNEntityMRelationship();
 //		long start_time = System.currentTimeMillis();
 //		generate.generateNM(100000, 1000000, vc.conn, vc.vf);
 //		long end_time = System.currentTimeMillis();
