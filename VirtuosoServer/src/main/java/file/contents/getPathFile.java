@@ -10,16 +10,16 @@ public class getPathFile {
 	protected static final String pathDetailPerson = "src/main/java/file/PersonDetail.txt";
 
 	protected static final String pathEvent = "src/main/java/file/Event.txt";
-	protected static final String pathEventDetail = "src/main/java/file/LocationDetail.txt"; // dÃ¹ng táº¡m
+	protected static final String pathEventDetail = "src/main/java/file/LocationDetail.txt"; //đang dùng tạm
 	
 	protected static final String pathOrganization = "src/main/java/file/Organization.txt ";
-	protected static final String pathOrganizationDetail = "src/main/java/file/LocationDetail.txt"; // dÃ¹ng táº¡m
+	protected static final String pathOrganizationDetail = "src/main/java/file/LocationDetail.txt"; //đang dùng tạm
 	
 	protected static final String pathTime = "src/main/java/file/Time.txt";
 	
 	protected static final String pathLink = "src/main/java/file/Link.txt";		
 
-	protected static final String pathVerbForIRI = "src\\main\\java\\file\\ListVerbForIRI.txt";		//quan há»‡
+	protected static final String pathRelationship = "src\\main\\java\\file\\ListRelationship.txt";		
 
 	protected static final String pathCountry = "src/main/java/file/ListCountry.txt";
 	protected static final String pathAshiaDetail = "src/main/java/file/CountryDetail/Ashia.txt";

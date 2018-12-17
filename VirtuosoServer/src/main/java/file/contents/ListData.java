@@ -22,7 +22,7 @@ public class ListData {
 
 	private static ArrayList<String> listTime;
 
-	private static ArrayList<String> listVerbForIRI;
+	private static ArrayList<String> listRelatioship;
 
 	private static ArrayList<String> listLink;
 	
@@ -130,9 +130,9 @@ public class ListData {
 		return listLink().get(n);
 	}
 	/*----------------------------Relationship----------------------------*/
-	public static ArrayList<String> ListVerbForIRIs() {
-		listVerbForIRI = getFileContents.getListFiles(getPathFile.pathVerbForIRI);
-		return listVerbForIRI;
+	public static ArrayList<String> listRelatioship() {
+		listRelatioship = getFileContents.getListFiles(getPathFile.pathRelationship);
+		return listRelatioship;
 	}
 	/**
 	 * Test Country and detail

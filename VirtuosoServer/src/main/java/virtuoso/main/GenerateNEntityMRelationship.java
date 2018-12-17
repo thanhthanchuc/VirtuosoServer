@@ -26,16 +26,19 @@ public class GenerateNEntityMRelationship {
 	private RandomCountryGenerator rdC;
 	private RandomEventGenerator rdE;
 	private RandomRelationshipGenerator rdR;
-	private static int countP;
+	private static int countP, countO, countL, countE;
 
 	public GenerateNEntityMRelationship() {
 		try {
 			rdP = new RandomPersonGenerator();
 			countP = rdP.countPerson(vc.conn);
 			rdO = new RandomOrganizationGenerator();
+			countO = rdO.countOrganization(vc.conn);
 			rdL = new RandomCityLocationGenerator();
+			countL = rdL.countLocation(vc.conn);
 			rdC = new RandomCountryGenerator();
 			rdE = new RandomEventGenerator();
+			countE = rdE.countEvent(vc.conn);
 			rdR = new RandomRelationshipGenerator();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -51,16 +54,16 @@ public class GenerateNEntityMRelationship {
 			entity = rdP.createIriEntity(vf, model, ++countP);
 			break;
 		case 2:
-			entity = rdO.createIriEntity(vf, model);
+			entity = rdO.createIriEntity(vf, model, ++countO);
 			break;
 		case 3:
-			entity = rdL.createIriEntity(vf, model);
+			entity = rdL.createIriEntity(vf, model, ++countL);
 			break;
 		case 4:
 			entity = rdC.createIriEntity(vf, model);
 			break;
 		case 5:
-			entity = rdE.createIriEntity(vf, model);
+			entity = rdE.createIriEntity(vf, model, ++countE);
 			break;
 		}
 		return entity;
@@ -76,7 +79,7 @@ public class GenerateNEntityMRelationship {
 	private int divide(int n, int m) {
 		int k = 1;
 		int c = 1;
-		if (n <= 20000 && m <= 20000) {
+		if (n <= 15000 && m <= 15000) {
 			return 1;
 		} else {
 			if (n > m) {
@@ -123,8 +126,8 @@ public class GenerateNEntityMRelationship {
 				 * add Entity vào model Đồng thời add định danh vào listEntity
 				 */
 				listEntity.add(ramdomEntity(conn, vf, model));
-				if (j % 1000 == 0) {
-					System.out.println(i *sn + j);
+				if ((i * sn + j) % 1000 == 0) {
+					System.out.println(i * sn + j);
 				}
 			}
 			for (int t = 0; t < sm; t++) {
@@ -140,8 +143,8 @@ public class GenerateNEntityMRelationship {
 //				System.out.println(entity1 + "\n" + rel + "\n" + entity2 + "\n");
 			}
 			conn.add(model); // add model
-			model.clear();	//reset model
-			listEntity.clear();	//reset listEntity before create new listEntity
+			model.clear(); // reset model
+			listEntity.clear(); // reset listEntity before create new listEntity
 		}
 		conn.close();
 	}

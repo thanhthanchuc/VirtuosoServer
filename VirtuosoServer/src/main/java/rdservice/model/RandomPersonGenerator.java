@@ -51,12 +51,8 @@ public class RandomPersonGenerator implements DataLink {
 	// Dem so luong person trong db.
 	public int countPerson(RepositoryConnection conn) {
 		String count = null;
-		String queryString = "select count(distinct ?s) as ?count\n" 
-							+ "where\n"
-							+ "{\n"
-							+ "?s ?p ?o.\n"
-							+ "FILTER regex(str(?s),\"http://example.org/Person/Person\").\n"
-							+ "}";
+		String queryString = "select count(distinct ?s) as ?count\n" + "where\n" + "{\n" + "?s ?p ?o.\n"
+				+ "FILTER regex(str(?s),\"http://example.org/Person/Person\").\n" + "}";
 		TupleQuery query = conn.prepareTupleQuery(queryString);
 		TupleQueryResult result = query.evaluate();
 		while (result.hasNext()) {
@@ -83,7 +79,6 @@ public class RandomPersonGenerator implements DataLink {
 		model.add(idP, link, vf.createLiteral(p.getLink()));
 		return idP;
 	}
-
 
 	public static void main(String[] args) {
 //		VirtuosoConnector vc = new VirtuosoConnector();

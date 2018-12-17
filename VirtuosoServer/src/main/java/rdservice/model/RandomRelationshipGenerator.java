@@ -12,7 +12,7 @@ public class RandomRelationshipGenerator {
 	private static final String NAMESPACE = "http://example.org/Relationship/";
 
 	public RandomRelationshipGenerator() throws FileNotFoundException {
-		relationship = ListData.ListVerbForIRIs();
+		relationship = ListData.listRelatioship();
 	}
 	
 	public IRI generateRelationship() {

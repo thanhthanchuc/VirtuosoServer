@@ -2,6 +2,7 @@
 Tokmok
 Fengshan
 Gemo
+New York City
 Hà Nội
 Nanjing
 El Valle del Espíritu Santo
@@ -182,7 +183,7 @@ Mashiko
 Berendeyevo
 Gvardeysk
 Baizhang
-Obolo-Eke (1)
+Obolo-Eke
 Xuanma
 Piduhe
 Skórzec
@@ -212,7 +213,6 @@ Shuinan
 Nggelok
 Kedian
 Stockholm
-‘Ayn al Bayḑā
 Notre Dame
 Pepayan
 Sirnasari
@@ -1003,7 +1003,6 @@ Ciburial
 Petaling Jaya
 Wujiayao
 Panyingkiran
-New York City
 Payao
 Paris La Défense
 Cataguases
