@@ -148,12 +148,4 @@ public class GenerateNEntityMRelationship {
 		}
 		conn.close();
 	}
-
-	public static void main(String[] args) {
-		long start = System.currentTimeMillis();
-		GenerateNEntityMRelationship g = new GenerateNEntityMRelationship();
-		System.out.println(g.divide(1000000, 1000));
-		long end = System.currentTimeMillis();
-		System.out.println(end - start + "ms");
-	}
 }

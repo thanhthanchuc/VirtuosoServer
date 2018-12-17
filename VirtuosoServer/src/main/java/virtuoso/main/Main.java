@@ -11,14 +11,18 @@ public class Main {
 	private static GenerateNEntityMRelationship generate = new GenerateNEntityMRelationship();
 
 	public static void main(String[] args) {
+		/*
+		 * Phần này sinh dữ liệu giả lập. Hãy sinh trk khi query nếu muốn nó có nghĩa
+		 */
 //		long start_time = System.currentTimeMillis();
-//		generate.generateNM(150000, 170000, vc.conn, vc.vf);
+//		generate.generateNM(100000, 1000000, vc.conn, vc.vf);
 //		long end_time = System.currentTimeMillis();
 //		System.out.println(end_time - start_time + "ms");
-
+		
 		/*
 		 * Đây sẽ là phần BasicQuery
 		 */
+		
 //		BasicQuery bq = new BasicQuery();
 //		bq.basicQuery1("Person100");
 //		bq.basicQuery2("Organization100");
@@ -35,8 +39,17 @@ public class Main {
 		 * Đây sẽ là phần AdvancedQuery
 		 * 
 		 */
+		
 		AdvancedQuery aq = new AdvancedQuery();
-		aq.AdvancedQuery1("Chưa biết làm gì cả !");
-
+//		aq.AdvancedQuery1();
+//		aq.AdvancedQuery2();
+//		aq.AdvancedQuery3();
+//		aq.AdvancedQuery4();
+//		aq.AdvancedQuery5();
+//		aq.AdvancedQuery6();
+//		aq.AdvancedQuery7("Bach Khoa Open Day");
+//		aq.AdvancedQuery8();
+//		aq.AdvancedQuery9();
+		aq.AdvancedQuery10();// Hãy làm điều gì đó thú vị ở đây
 	}
 }

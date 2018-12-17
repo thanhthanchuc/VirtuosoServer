@@ -134,14 +134,4 @@ public class ListData {
 		listRelatioship = getFileContents.getListFiles(getPathFile.pathRelationship);
 		return listRelatioship;
 	}
-	/**
-	 * Test Country and detail
-	 * @param args
-	 * @throws FileNotFoundException
-	 */
-	public static void main(String[] args) throws FileNotFoundException {
-		for (Country country : country()) {
-			System.out.println(country.getName() + " " + country.getDetail());
-		}
-	}
 }
