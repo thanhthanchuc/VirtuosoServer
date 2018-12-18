@@ -330,7 +330,8 @@ public class AdvancedQuery {
 	}
 
 	/*
-	 * Số Person work in Microsoft or Honda đã tham gia sự kiện 'President Obama visits Vietnam'
+	 * Số Person work in Microsoft or Honda đã tham gia sự kiện 'President Obama
+	 * visits Vietnam'
 	 */
 	public void AdvancedQuery9() {
 		String queryString = "PREFIX ps: <http://example.org/Person/>\n";
@@ -362,10 +363,37 @@ public class AdvancedQuery {
 		}
 		System.out.println((end - start) + "ms");
 	}
+
 	/*
 	 * Hãy làm điều gì đó thú vị ở đây
 	 */
 	public void AdvancedQuery10() {
-		System.out.println("Hãy làm điều gì đó thú vị ở đây");
+		String queryString = "PREFIX ps: <http://example.org/Person/>\n";
+		queryString += "PREFIX ev: <http://example.org/Event/>\n";
+		queryString += "PREFIX re: <http://example.org/Relationship/>\n";
+		queryString += "Select count(distinct ?idP) as ?countP\n";
+		queryString += "Where {\n";
+		queryString += "?idP re:passed ?idE.\n";
+		queryString += "?idE ev:Name ?event.\n";
+		queryString += "?idE ev:At ?time.\n";
+		queryString += "FILTER regex(?idP,ps:).\n";
+		queryString += "FILTER regex(?event ,\"final exam\").\n";
+		queryString += "FILTER regex(?time,\"07/2018\").\n";
+		queryString += "}";
+
+		long start = System.currentTimeMillis();
+		TupleQuery query = vc.conn.prepareTupleQuery(queryString);
+		TupleQueryResult result = query.evaluate();
+		long end = System.currentTimeMillis();
+
+		while (result.hasNext()) {
+			BindingSet solution = result.next();
+			System.out.println("CountPerson: " + formatString(solution.getValue("countP").toString()));
+			System.out.println("Event: " + "final exam");
+			System.out.println("Relationship: passed");
+			System.out.println("Time: " + "07/2018");
+			System.out.println();
+		}
+		System.out.println((end - start) + "ms");
 	}
 }

@@ -1,14 +1,13 @@
 package virtuoso.main;
 
 import virtuoso.connection.VirtuosoConnector;
-
-/**
- * Hello world!
+/*
+ * 
+ * @author (n_n) Hello World !
  *
  */
 public class Main {
 	private static VirtuosoConnector vc = new VirtuosoConnector();
-
 	public static void main(String[] args) {
 		/*
 		 * Phần này sinh dữ liệu giả lập. Hãy sinh trk khi query nếu muốn nó có nghĩa
@@ -18,11 +17,11 @@ public class Main {
 //		generate.generateNM(100000, 1000000, vc.conn, vc.vf);
 //		long end_time = System.currentTimeMillis();
 //		System.out.println(end_time - start_time + "ms");
-		
+
 		/*
 		 * Đây sẽ là phần BasicQuery
 		 */
-		
+
 //		BasicQuery bq = new BasicQuery();
 //		bq.basicQuery1("Person100");
 //		bq.basicQuery2("Organization100");
@@ -39,7 +38,7 @@ public class Main {
 		 * Đây sẽ là phần AdvancedQuery
 		 * 
 		 */
-		
+
 		AdvancedQuery aq = new AdvancedQuery();
 //		aq.AdvancedQuery1();
 //		aq.AdvancedQuery2();
@@ -50,6 +49,6 @@ public class Main {
 //		aq.AdvancedQuery7("Bach Khoa Open Day");
 //		aq.AdvancedQuery8();
 //		aq.AdvancedQuery9();
-		aq.AdvancedQuery10();// Hãy làm điều gì đó thú vị ở đây
+		aq.AdvancedQuery10();
 	}
 }
