@@ -365,7 +365,7 @@ public class AdvancedQuery {
 	}
 
 	/*
-	 * Hãy làm điều gì đó thú vị ở đây
+	 * Đếm số Person passed final exam at 07/2018
 	 */
 	public void AdvancedQuery10() {
 		String queryString = "PREFIX ps: <http://example.org/Person/>\n";

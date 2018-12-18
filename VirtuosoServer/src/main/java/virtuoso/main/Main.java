@@ -10,13 +10,13 @@ public class Main {
 	private static VirtuosoConnector vc = new VirtuosoConnector();
 	public static void main(String[] args) {
 		/*
-		 * Phần này sinh dữ liệu giả lập. Hãy sinh trk khi query nếu muốn nó có nghĩa
+		 * Phần này sinh dữ liệu giả lập. Hãy sinh trước khi query nếu muốn nó có nghĩa
 		 */
-//		GenerateNEntityMRelationship generate = new GenerateNEntityMRelationship();
-//		long start_time = System.currentTimeMillis();
-//		generate.generateNM(100000, 1000000, vc.conn, vc.vf);
-//		long end_time = System.currentTimeMillis();
-//		System.out.println(end_time - start_time + "ms");
+		GenerateNEntityMRelationship generate = new GenerateNEntityMRelationship(vc.conn);
+		long start_time = System.currentTimeMillis();
+		generate.generateNM(500000, 1000000, vc.conn, vc.vf);
+		long end_time = System.currentTimeMillis();
+		System.out.println(end_time - start_time + "ms");
 
 		/*
 		 * Đây sẽ là phần BasicQuery
@@ -39,7 +39,7 @@ public class Main {
 		 * 
 		 */
 
-		AdvancedQuery aq = new AdvancedQuery();
+//		AdvancedQuery aq = new AdvancedQuery();
 //		aq.AdvancedQuery1();
 //		aq.AdvancedQuery2();
 //		aq.AdvancedQuery3();
@@ -49,6 +49,6 @@ public class Main {
 //		aq.AdvancedQuery7("Bach Khoa Open Day");
 //		aq.AdvancedQuery8();
 //		aq.AdvancedQuery9();
-		aq.AdvancedQuery10();
+//		aq.AdvancedQuery10();
 	}
 }

@@ -28,17 +28,17 @@ public class GenerateNEntityMRelationship {
 	private RandomRelationshipGenerator rdR;
 	private static int countP, countO, countL, countE;
 
-	public GenerateNEntityMRelationship() {
+	public GenerateNEntityMRelationship(RepositoryConnection conn) {
 		try {
 			rdP = new RandomPersonGenerator();
-			countP = rdP.countPerson(vc.conn);
+			countP = rdP.countPerson(conn);
 			rdO = new RandomOrganizationGenerator();
-			countO = rdO.countOrganization(vc.conn);
+			countO = rdO.countOrganization(conn);
 			rdL = new RandomCityLocationGenerator();
-			countL = rdL.countLocation(vc.conn);
+			countL = rdL.countLocation(conn);
 			rdC = new RandomCountryGenerator();
 			rdE = new RandomEventGenerator();
-			countE = rdE.countEvent(vc.conn);
+			countE = rdE.countEvent(conn);
 			rdR = new RandomRelationshipGenerator();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -110,7 +110,7 @@ public class GenerateNEntityMRelationship {
 	 * @param conn
 	 * @param vf
 	 */
-	public void generateNM(int n, int m, RepositoryConnection conn, ValueFactory vf) {
+	protected void generateNM(int n, int m, RepositoryConnection conn, ValueFactory vf) {
 		int k = divide(n, m);
 		Random rd = new Random();
 		Model model = new TreeModel();
