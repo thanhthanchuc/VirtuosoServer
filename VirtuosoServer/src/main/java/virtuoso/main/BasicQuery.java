@@ -12,25 +12,14 @@ public class BasicQuery {
 	public BasicQuery() {
 		vc = new VirtuosoConnector();
 	}
-
-	/**
-	 * Format String IRI or Literal
-	 * @param str
-	 * @return
-	 */
-	private static String formatString(String str) {
-		if (str.substring(0, 1).equals("\""))
-			return str.substring(1, str.lastIndexOf("\""));
-		else
-			return str.substring(str.lastIndexOf("/") + 1, str.length());
-	}
-
+	
 	/**
 	 * Đưa ra tất cả thông tin của Person có định danh là idP
 	 * 
 	 * @param maPerson
 	 * @param conn
 	 */
+	
 	public void basicQuery1(String idP) {
 		String queryString = "PREFIX ps:<http://example.org/Person/>\n";
 		queryString += "select *\n";
@@ -49,11 +38,11 @@ public class BasicQuery {
 
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
-			System.out.println("IDPerson: " + formatString(solution.getValue("idP").toString()));
-			System.out.println("Name: " + formatString(solution.getValue("name").toString()));
-			System.out.println("Position: " + formatString(solution.getValue("position").toString()));
-			System.out.println("Detail: " + formatString(solution.getValue("detail").toString()));
-			System.out.println("Link: " + formatString(solution.getValue("link").toString()));
+			System.out.println("IDPerson: " + FormatValue.formatString(solution.getValue("idP").toString()));
+			System.out.println("Name: " + FormatValue.formatString(solution.getValue("name").toString()));
+			System.out.println("Position: " + FormatValue.formatString(solution.getValue("position").toString()));
+			System.out.println("Detail: " + FormatValue.formatString(solution.getValue("detail").toString()));
+			System.out.println("Link: " + FormatValue.formatString(solution.getValue("link").toString()));
 			System.out.println();
 		}
 		System.out.println((end - start) + "ms");
@@ -82,11 +71,11 @@ public class BasicQuery {
 
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
-			System.out.println("IDOrganization: " + formatString(solution.getValue("idO").toString()));
-			System.out.println("Name: " + formatString(solution.getValue("name").toString()));
-			System.out.println("Headquarter: " + formatString(solution.getValue("headquarters").toString()));
-			System.out.println("Detail: " + formatString(solution.getValue("detail").toString()));
-			System.out.println("Link: " + formatString(solution.getValue("link").toString()));
+			System.out.println("IDOrganization: " + FormatValue.formatString(solution.getValue("idO").toString()));
+			System.out.println("Name: " + FormatValue.formatString(solution.getValue("name").toString()));
+			System.out.println("Headquarter: " + FormatValue.formatString(solution.getValue("headquarters").toString()));
+			System.out.println("Detail: " + FormatValue.formatString(solution.getValue("detail").toString()));
+			System.out.println("Link: " + FormatValue.formatString(solution.getValue("link").toString()));
 			System.out.println();
 		}
 		System.out.println((end - start) + "ms");
@@ -109,10 +98,10 @@ public class BasicQuery {
 
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
-			System.out.println("IDLocation: " + formatString(solution.getValue("idL").toString()));
-			System.out.println("Name: " + formatString(solution.getValue("name").toString()));
-			System.out.println("Detail: " + formatString(solution.getValue("detail").toString()));
-			System.out.println("Link: " + formatString(solution.getValue("link").toString()));
+			System.out.println("IDLocation: " + FormatValue.formatString(solution.getValue("idL").toString()));
+			System.out.println("Name: " + FormatValue.formatString(solution.getValue("name").toString()));
+			System.out.println("Detail: " + FormatValue.formatString(solution.getValue("detail").toString()));
+			System.out.println("Link: " + FormatValue.formatString(solution.getValue("link").toString()));
 			System.out.println();
 		}
 		System.out.println((end - start) + "ms");
@@ -140,9 +129,9 @@ public class BasicQuery {
 
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
-			System.out.println("Name: " + formatString(solution.getValue("idC").toString()));
-			System.out.println("Detail: " + formatString(solution.getValue("detail").toString()));
-			System.out.println("Link: " + formatString(solution.getValue("link").toString()));
+			System.out.println("Name: " + FormatValue.formatString(solution.getValue("idC").toString()));
+			System.out.println("Detail: " + FormatValue.formatString(solution.getValue("detail").toString()));
+			System.out.println("Link: " + FormatValue.formatString(solution.getValue("link").toString()));
 			System.out.println();
 		}
 		System.out.println((end - start) + "ms");
@@ -171,11 +160,11 @@ public class BasicQuery {
 
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
-			System.out.println("IDEvent: " + formatString(solution.getValue("idE").toString()));
-			System.out.println("Name: " + formatString(solution.getValue("name").toString()));
-			System.out.println("Detail: " + formatString(solution.getValue("detail").toString()));
-			System.out.println("Link: " + formatString(solution.getValue("link").toString()));
-			System.out.println("At: " + formatString(solution.getValue("time").toString()));
+			System.out.println("IDEvent: " + FormatValue.formatString(solution.getValue("idE").toString()));
+			System.out.println("Name: " + FormatValue.formatString(solution.getValue("name").toString()));
+			System.out.println("Detail: " + FormatValue.formatString(solution.getValue("detail").toString()));
+			System.out.println("Link: " + FormatValue.formatString(solution.getValue("link").toString()));
+			System.out.println("At: " + FormatValue.formatString(solution.getValue("time").toString()));
 			System.out.println();
 		}
 		System.out.println((end - start) + "ms");
@@ -202,9 +191,9 @@ public class BasicQuery {
 
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
-			System.out.println("IDEvent: " + formatString(solution.getValue("idE").toString()));
-			System.out.println("Name: " + formatString(solution.getValue("name").toString()));
-			System.out.println("At: " + formatString(solution.getValue("time").toString()));
+			System.out.println("IDEvent: " + FormatValue.formatString(solution.getValue("idE").toString()));
+			System.out.println("Name: " + FormatValue.formatString(solution.getValue("name").toString()));
+			System.out.println("At: " + FormatValue.formatString(solution.getValue("time").toString()));
 			System.out.println();
 		}
 		System.out.println((end - start) + "ms");
@@ -236,10 +225,10 @@ public class BasicQuery {
 
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
-			System.out.println("IDEvent: " + formatString(solution.getValue("idE").toString()));
-			System.out.println("NAME: " + formatString(solution.getValue("event").toString()));
-			System.out.println("Relatioship: " + formatString(solution.getValue("rl").toString()));
-			System.out.println("Location: " + formatString(solution.getValue("location").toString()));
+			System.out.println("IDEvent: " + FormatValue.formatString(solution.getValue("idE").toString()));
+			System.out.println("NAME: " + FormatValue.formatString(solution.getValue("event").toString()));
+			System.out.println("Relatioship: " + FormatValue.formatString(solution.getValue("rl").toString()));
+			System.out.println("Location: " + FormatValue.formatString(solution.getValue("location").toString()));
 			System.out.println();
 		}
 		System.out.println((end - start) + "ms");
@@ -270,10 +259,10 @@ public class BasicQuery {
 		long end = System.currentTimeMillis();
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
-			System.out.println("IDOrganization: " + formatString(solution.getValue("idO").toString()));
-			System.out.println("NAME: " + formatString(solution.getValue("organization").toString()));
-			System.out.println("Relatioship: " + formatString(solution.getValue("rl").toString()));
-			System.out.println("Event: " + formatString(solution.getValue("event").toString()));
+			System.out.println("IDOrganization: " + FormatValue.formatString(solution.getValue("idO").toString()));
+			System.out.println("NAME: " + FormatValue.formatString(solution.getValue("organization").toString()));
+			System.out.println("Relatioship: " + FormatValue.formatString(solution.getValue("rl").toString()));
+			System.out.println("Event: " + FormatValue.formatString(solution.getValue("event").toString()));
 			System.out.println();
 		}
 		System.out.println((end - start) + "ms");
@@ -304,10 +293,10 @@ public class BasicQuery {
 		long end = System.currentTimeMillis();
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
-			System.out.println("IDPerson: " + formatString(solution.getValue("idP").toString()));
-			System.out.println("NAME: " + formatString(solution.getValue("person").toString()));
-			System.out.println("Relatioship: " + formatString(solution.getValue("rl").toString()));
-			System.out.println("Event: " + formatString(solution.getValue("event").toString()));
+			System.out.println("IDPerson: " + FormatValue.formatString(solution.getValue("idP").toString()));
+			System.out.println("NAME: " + FormatValue.formatString(solution.getValue("person").toString()));
+			System.out.println("Relatioship: " + FormatValue.formatString(solution.getValue("rl").toString()));
+			System.out.println("Event: " + FormatValue.formatString(solution.getValue("event").toString()));
 			System.out.println();
 		}
 		System.out.println((end - start) + "ms");
@@ -337,11 +326,11 @@ public class BasicQuery {
 		long end = System.currentTimeMillis();
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
-			System.out.println("IDPerson: " + formatString(solution.getValue("idP").toString()));
-			System.out.println("Person: " + formatString(solution.getValue("person").toString()));
-			System.out.println("Relatioship: " + formatString(solution.getValue("rel").toString()));
-			System.out.println("IDOrganization: " + formatString(solution.getValue("idO").toString()));
-			System.out.println("Organization: " + formatString(solution.getValue("organization").toString()));
+			System.out.println("IDPerson: " + FormatValue.formatString(solution.getValue("idP").toString()));
+			System.out.println("Person: " + FormatValue.formatString(solution.getValue("person").toString()));
+			System.out.println("Relatioship: " + FormatValue.formatString(solution.getValue("rel").toString()));
+			System.out.println("IDOrganization: " + FormatValue.formatString(solution.getValue("idO").toString()));
+			System.out.println("Organization: " + FormatValue.formatString(solution.getValue("organization").toString()));
 			System.out.println();
 		}
 		System.out.println((end - start) + "ms");

@@ -3,7 +3,6 @@ package virtuoso.main;
 import org.eclipse.rdf4j.query.BindingSet;
 import org.eclipse.rdf4j.query.TupleQuery;
 import org.eclipse.rdf4j.query.TupleQueryResult;
-
 import virtuoso.connection.VirtuosoConnector;
 
 public class AdvancedQuery {
@@ -11,22 +10,8 @@ public class AdvancedQuery {
 
 	public AdvancedQuery() {
 		vc = new VirtuosoConnector();
-
 	}
-
-	/**
-	 * Format String IRI or Literal
-	 * 
-	 * @param str
-	 * @return
-	 */
-	private static String formatString(String str) {
-		if (str.substring(0, 1).equals("\""))
-			return str.substring(1, str.lastIndexOf("\""));
-		else
-			return str.substring(str.lastIndexOf("/") + 1, str.length());
-	}
-
+	
 	/**
 	 * Đưa ra những Person tham gia sự kiện Bach Khoa Open Day diễn ra tại Location
 	 * Sophie trong tháng 10/2018
@@ -59,15 +44,15 @@ public class AdvancedQuery {
 
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
-			System.out.println("IDPerson: " + formatString(solution.getValue("idP").toString()));
-			System.out.println("Person: " + formatString(solution.getValue("person").toString()));
+			System.out.println("IDPerson: " + FormatValue.formatString(solution.getValue("idP").toString()));
+			System.out.println("Person: " + FormatValue.formatString(solution.getValue("person").toString()));
 			System.out.println("Relationship: Attend");
-			System.out.println("IDEvent: " + formatString(solution.getValue("idE").toString()));
-			System.out.println("Event: " + formatString(solution.getValue("event").toString()));
-			System.out.println("Relationship: " + formatString(solution.getValue("re").toString()));
-			System.out.println("IDLocation: " + formatString(solution.getValue("idL").toString()));
-			System.out.println("Location: " + formatString(solution.getValue("location").toString()));
-			System.out.println("Time: " + formatString(solution.getValue("time").toString()));
+			System.out.println("IDEvent: " + FormatValue.formatString(solution.getValue("idE").toString()));
+			System.out.println("Event: " + FormatValue.formatString(solution.getValue("event").toString()));
+			System.out.println("Relationship: " + FormatValue.formatString(solution.getValue("re").toString()));
+			System.out.println("IDLocation: " + FormatValue.formatString(solution.getValue("idL").toString()));
+			System.out.println("Location: " + FormatValue.formatString(solution.getValue("location").toString()));
+			System.out.println("Time: " + FormatValue.formatString(solution.getValue("time").toString()));
 			System.out.println();
 		}
 		System.out.println((end - start) + "ms");
@@ -102,14 +87,14 @@ public class AdvancedQuery {
 
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
-			System.out.println("IDPerson: " + formatString(solution.getValue("idP").toString()));
-			System.out.println("Person: " + formatString(solution.getValue("person").toString()));
+			System.out.println("IDPerson: " + FormatValue.formatString(solution.getValue("idP").toString()));
+			System.out.println("Person: " + FormatValue.formatString(solution.getValue("person").toString()));
 			System.out.println("Relationship1: work in");
-			System.out.println("IDOrganization: " + formatString(solution.getValue("idO").toString()));
-			System.out.println("Organization: " + formatString(solution.getValue("organization").toString()));
-			System.out.println("Relationship2: " + formatString(solution.getValue("re2").toString()));
-			System.out.println("IDEvent: " + formatString(solution.getValue("idE").toString()));
-			System.out.println("Event: " + formatString(solution.getValue("event").toString()));
+			System.out.println("IDOrganization: " + FormatValue.formatString(solution.getValue("idO").toString()));
+			System.out.println("Organization: " + FormatValue.formatString(solution.getValue("organization").toString()));
+			System.out.println("Relationship2: " + FormatValue.formatString(solution.getValue("re2").toString()));
+			System.out.println("IDEvent: " + FormatValue.formatString(solution.getValue("idE").toString()));
+			System.out.println("Event: " + FormatValue.formatString(solution.getValue("event").toString()));
 			System.out.println();
 		}
 		System.out.println((end - start) + "ms");
@@ -123,7 +108,6 @@ public class AdvancedQuery {
 		queryString += "PREFIX ev: <http://example.org/Event/>\n";
 		queryString += "PREFIX lc: <http://example.org/Location/>\n";
 		queryString += "PREFIX re: <http://example.org/Relationship/>\n";
-		queryString += "\n";
 		queryString += "Select * \n";
 		queryString += "where {\n";
 		queryString += "?idO or:Name ?organization.\n";
@@ -143,14 +127,14 @@ public class AdvancedQuery {
 
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
-			System.out.println("IDOrganization: " + formatString(solution.getValue("idO").toString()));
-			System.out.println("Organization: " + formatString(solution.getValue("organization").toString()));
+			System.out.println("IDOrganization: " + FormatValue.formatString(solution.getValue("idO").toString()));
+			System.out.println("Organization: " + FormatValue.formatString(solution.getValue("organization").toString()));
 			System.out.println("Relationship1: organize");
-			System.out.println("IDEvent: " + formatString(solution.getValue("idE").toString()));
-			System.out.println("Event: " + formatString(solution.getValue("event").toString()));
-			System.out.println("Relationship2: " + formatString(solution.getValue("re").toString()));
-			System.out.println("IDLocation: " + formatString(solution.getValue("idL").toString()));
-			System.out.println("Location: " + formatString(solution.getValue("location").toString()));
+			System.out.println("IDEvent: " + FormatValue.formatString(solution.getValue("idE").toString()));
+			System.out.println("Event: " + FormatValue.formatString(solution.getValue("event").toString()));
+			System.out.println("Relationship2: " + FormatValue.formatString(solution.getValue("re").toString()));
+			System.out.println("IDLocation: " + FormatValue.formatString(solution.getValue("idL").toString()));
+			System.out.println("Location: " + FormatValue.formatString(solution.getValue("location").toString()));
 			System.out.println();
 		}
 		System.out.println((end - start) + "ms");
@@ -183,13 +167,13 @@ public class AdvancedQuery {
 
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
-			System.out.println("IDOrganization: " + formatString(solution.getValue("idO").toString()));
-			System.out.println("Organization: " + formatString(solution.getValue("organization").toString()));
-			System.out.println("Headquarters: " + formatString(solution.getValue("headquarters").toString()));
+			System.out.println("IDOrganization: " + FormatValue.formatString(solution.getValue("idO").toString()));
+			System.out.println("Organization: " + FormatValue.formatString(solution.getValue("organization").toString()));
+			System.out.println("Headquarters: " + FormatValue.formatString(solution.getValue("headquarters").toString()));
 			System.out.println("Relationship1: organize");
-			System.out.println("IDEvent: " + formatString(solution.getValue("idE").toString()));
-			System.out.println("Event: " + formatString(solution.getValue("event").toString()));
-			System.out.println("Time: " + formatString(solution.getValue("time").toString()));
+			System.out.println("IDEvent: " + FormatValue.formatString(solution.getValue("idE").toString()));
+			System.out.println("Event: " + FormatValue.formatString(solution.getValue("event").toString()));
+			System.out.println("Time: " + FormatValue.formatString(solution.getValue("time").toString()));
 			System.out.println();
 		}
 		System.out.println((end - start) + "ms");
@@ -221,12 +205,12 @@ public class AdvancedQuery {
 
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
-			System.out.println("IDOrganization1: " + formatString(solution.getValue("idO1").toString()));
-			System.out.println("Organization1: " + formatString(solution.getValue("organization1").toString()));
-			System.out.println("Headquarters: " + formatString(solution.getValue("headquarters").toString()));
+			System.out.println("IDOrganization1: " + FormatValue.formatString(solution.getValue("idO1").toString()));
+			System.out.println("Organization1: " + FormatValue.formatString(solution.getValue("organization1").toString()));
+			System.out.println("Headquarters: " + FormatValue.formatString(solution.getValue("headquarters").toString()));
 			System.out.println("Relationship: cooperate with");
-			System.out.println("IDOrganization2: " + formatString(solution.getValue("idO2").toString()));
-			System.out.println("Organization2: " + formatString(solution.getValue("organization2").toString()));
+			System.out.println("IDOrganization2: " + FormatValue.formatString(solution.getValue("idO2").toString()));
+			System.out.println("Organization2: " + FormatValue.formatString(solution.getValue("organization2").toString()));
 			System.out.println();
 		}
 		System.out.println((end - start) + "ms");
@@ -261,13 +245,13 @@ public class AdvancedQuery {
 
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
-			System.out.println("Country1: " + formatString(solution.getValue("idC1").toString()));
-			System.out.println("Relationship1: " + formatString(solution.getValue("re1").toString()));
-			System.out.println("Country2: " + formatString(solution.getValue("idC2").toString()));
+			System.out.println("Country1: " + FormatValue.formatString(solution.getValue("idC1").toString()));
+			System.out.println("Relationship1: " + FormatValue.formatString(solution.getValue("re1").toString()));
+			System.out.println("Country2: " + FormatValue.formatString(solution.getValue("idC2").toString()));
 			System.out.println("Relationship2: organize");
-			System.out.println("IDEvent: " + formatString(solution.getValue("idE").toString()));
-			System.out.println("Event: " + formatString(solution.getValue("event").toString()));
-			System.out.println("Time: " + formatString(solution.getValue("time").toString()));
+			System.out.println("IDEvent: " + FormatValue.formatString(solution.getValue("idE").toString()));
+			System.out.println("Event: " + FormatValue.formatString(solution.getValue("event").toString()));
+			System.out.println("Time: " + FormatValue.formatString(solution.getValue("time").toString()));
 			System.out.println();
 		}
 		System.out.println((end - start) + "ms");
@@ -294,7 +278,7 @@ public class AdvancedQuery {
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
 			System.out.println("Name Event: " + nameEvent);
-			System.out.println("CountPerson: " + formatString(solution.getValue("countP").toString()));
+			System.out.println("CountPerson: " + FormatValue.formatString(solution.getValue("countP").toString()));
 			System.out.println();
 		}
 		System.out.println((end - start) + "ms");
@@ -323,7 +307,7 @@ public class AdvancedQuery {
 
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
-			System.out.println("CountPerson: " + formatString(solution.getValue("countP").toString()));
+			System.out.println("CountPerson: " + FormatValue.formatString(solution.getValue("countP").toString()));
 			System.out.println();
 		}
 		System.out.println((end - start) + "ms");
@@ -359,7 +343,7 @@ public class AdvancedQuery {
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
 			
-			System.out.println("CountPerson: " + formatString(solution.getValue("countP").toString()));
+			System.out.println("CountPerson: " + FormatValue.formatString(solution.getValue("countP").toString()));
 			System.out.println();
 		}
 		System.out.println((end - start) + "ms");
@@ -388,7 +372,7 @@ public class AdvancedQuery {
 
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
-			System.out.println("CountPerson: " + formatString(solution.getValue("countP").toString()));
+			System.out.println("CountPerson: " + FormatValue.formatString(solution.getValue("countP").toString()));
 			System.out.println("Event: " + "final exam");
 			System.out.println("Relationship: passed");
 			System.out.println("Time: " + "07/2018");

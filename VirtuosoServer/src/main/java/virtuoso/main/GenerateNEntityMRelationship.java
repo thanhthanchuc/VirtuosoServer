@@ -18,7 +18,7 @@ import rdservice.model.RandomRelationshipGenerator;
 import virtuoso.connection.VirtuosoConnector;
 
 public class GenerateNEntityMRelationship {
-	VirtuosoConnector vc = new VirtuosoConnector();
+	private static VirtuosoConnector vc = new VirtuosoConnector();
 	private RandomPersonGenerator rdP;
 	private RandomOrganizationGenerator rdO;
 	private RandomLocationGenerator rdL;
@@ -27,24 +27,24 @@ public class GenerateNEntityMRelationship {
 	private RandomRelationshipGenerator rdR;
 	private static int countP, countO, countL, countE;
 
-	public GenerateNEntityMRelationship(RepositoryConnection conn) {
-			System.out.println("Loading data ...");
-			rdP = new RandomPersonGenerator();
-			countP = rdP.countPerson(conn);
-			System.out.println("Loading data Person: Done!");
-			rdO = new RandomOrganizationGenerator();
-			countO = rdO.countOrganization(conn);
-			System.out.println("Loading data Organization: Done!");
-			rdL = new RandomLocationGenerator();
-			countL = rdL.countLocation(conn);
-			System.out.println("Loading data Location: Done!");
-			rdC = new RandomCountryGenerator();
-			System.out.println("Loading data Country: Done!");
-			rdE = new RandomEventGenerator();
-			countE = rdE.countEvent(conn);
-			System.out.println("Loading data Event: Done!");
-			rdR = new RandomRelationshipGenerator();
-			System.out.println("Loading data Relationship: Done!");
+	public GenerateNEntityMRelationship() {
+		System.out.println("Loading data ...");
+		rdP = new RandomPersonGenerator();
+		countP = rdP.countPerson(vc.conn);
+		System.out.println("Loading data Person: Done!");
+		rdO = new RandomOrganizationGenerator();
+		countO = rdO.countOrganization(vc.conn);
+		System.out.println("Loading data Organization: Done!");
+		rdL = new RandomLocationGenerator();
+		countL = rdL.countLocation(vc.conn);
+		System.out.println("Loading data Location: Done!");
+		rdC = new RandomCountryGenerator();
+		System.out.println("Loading data Country: Done!");
+		rdE = new RandomEventGenerator();
+		countE = rdE.countEvent(vc.conn);
+		System.out.println("Loading data Event: Done!");
+		rdR = new RandomRelationshipGenerator();
+		System.out.println("Loading data Relationship: Done!");
 	}
 
 	private IRI ramdomEntity(RepositoryConnection conn, ValueFactory vf, Model model) {
@@ -111,7 +111,7 @@ public class GenerateNEntityMRelationship {
 	 * @param conn
 	 * @param vf
 	 */
-	protected void generateNM(int n, int m, RepositoryConnection conn, ValueFactory vf) {
+	protected void generateNM(int n, int m) {
 		int k = divide(n, m);
 		Random rd = new Random();
 		Model model = new TreeModel();
@@ -126,7 +126,7 @@ public class GenerateNEntityMRelationship {
 				/**
 				 * add Entity vào model Đồng thời add định danh vào listEntity
 				 */
-				listEntity.add(ramdomEntity(conn, vf, model));
+				listEntity.add(ramdomEntity(vc.conn, vc.vf, model));
 				if ((i * sn + j) % 1000 == 0) {
 					System.out.println(i * sn + j);
 				}
@@ -140,13 +140,13 @@ public class GenerateNEntityMRelationship {
 				} while (c2 == c1);
 				entity2 = listEntity.get(c2);
 				rel = rdR.generateRelationship();
-				model.add(vf.createStatement(entity1, rel, entity2));
+				model.add(vc.vf.createStatement(entity1, rel, entity2));
 //				System.out.println(entity1 + "\n" + rel + "\n" + entity2 + "\n");
 			}
-			conn.add(model); // add model
+			vc.conn.add(model); // add model
 			model.clear(); // reset model
 			listEntity.clear(); // reset listEntity before create new listEntity
 		}
-		conn.close();
+		vc.conn.close();
 	}
 }

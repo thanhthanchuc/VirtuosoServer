@@ -47,8 +47,12 @@ public class RandomPersonGenerator implements DataLinkAndTime {
 	// Dem so luong person trong db.
 	public int countPerson(RepositoryConnection conn) {
 		String count = null;
-		String queryString = "select count(distinct ?s) as ?count\n" + "where\n" + "{\n" + "?s ?p ?o.\n"
-				+ "FILTER regex(str(?s),\"http://example.org/Person/Person\").\n" + "}";
+		String queryString = "select count(distinct ?s) as ?count\n";
+		queryString += "where\n";
+		queryString += "{\n";
+		queryString += "?s ?p ?o.\n";
+		queryString += "FILTER regex(str(?s),\"http://example.org/Person/Person\").\n";
+		queryString += "}";
 		TupleQuery query = conn.prepareTupleQuery(queryString);
 		TupleQueryResult result = query.evaluate();
 		while (result.hasNext()) {

@@ -41,8 +41,12 @@ public class RandomLocationGenerator extends GetRandom implements DataLinkAndTim
 
 	public int countLocation(RepositoryConnection conn) {
 		String count = null;
-		String queryString = "select count(distinct ?s) as ?count\n" + "where\n" + "{\n" + "?s ?p ?o.\n"
-				+ "FILTER regex(str(?s),\"http://example.org/Location/Location\").\n" + "}";
+		String queryString = "select count(distinct ?s) as ?count\n";
+		queryString += "where\n";
+		queryString += "{\n";
+		queryString += "?s ?p ?o.\n";
+		queryString += "FILTER regex(str(?s),\"http://example.org/Location/Location\").\n";
+		queryString += "}";
 		TupleQuery query = conn.prepareTupleQuery(queryString);
 		TupleQueryResult result = query.evaluate();
 		while (result.hasNext()) {

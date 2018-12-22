@@ -15,11 +15,11 @@ import file.contents.ListData;
 import model.Event;
 
 public class RandomEventGenerator extends GetRandom implements DataLinkAndTime {
-	
+
 	private final String NAMESPACE = "http://example.org/Event/";
 	private static ArrayList<String> names;
 	private static ArrayList<String> details;
-	
+
 	public RandomEventGenerator() {
 		try {
 			names = ListData.listEvent();
@@ -40,8 +40,12 @@ public class RandomEventGenerator extends GetRandom implements DataLinkAndTime {
 
 	public int countEvent(RepositoryConnection conn) {
 		String count = null;
-		String queryString = "select count(distinct ?s) as ?count\n" + "where\n" + "{\n" + "?s ?p ?o.\n"
-				+ "FILTER regex(str(?s),\"http://example.org/Event/Event\").\n" + "}";
+		String queryString = "select count(distinct ?s) as ?count\n";
+		queryString += "where\n";
+		queryString += "{\n";
+		queryString += "?s ?p ?o.\n";
+		queryString += "FILTER regex(str(?s),\"http://example.org/Event/Event\").\n";
+		queryString += "}";
 		TupleQuery query = conn.prepareTupleQuery(queryString);
 		TupleQueryResult result = query.evaluate();
 		while (result.hasNext()) {
