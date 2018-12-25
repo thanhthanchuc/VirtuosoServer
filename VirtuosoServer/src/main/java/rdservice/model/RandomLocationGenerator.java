@@ -18,21 +18,21 @@ import model.Location;
 public class RandomLocationGenerator extends GetRandom implements DataLinkAndTime {
 
 	private final String NAMESPACE = "http://example.org/Location/";
-	private static ArrayList<String> location;
-	private static ArrayList<String> locationDetail;
+	private static ArrayList<String> locations;
+	private static ArrayList<String> locationDetails;
 
 	public RandomLocationGenerator() {
 		try {
-			location = ListData.ListFirstNames();
-			locationDetail = ListData.listLocationDetail();
+			locations = ListData.ListCitys();
+			locationDetails = ListData.listLocationDetail();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
 
 	public Location generateRandomLocation() {
-		String name = GetRandom.getRandomFromList(location);
-		String detail = GetRandom.getRandomFromList(locationDetail);
+		String name = GetRandom.getRandomFromList(locations);
+		String detail = GetRandom.getRandomFromList(locationDetails);
 		String pLink = GetRandom.getRandomFromList(DataLinkAndTime.links);
 		String timeLink = GetRandom.getRandomFromList(DataLinkAndTime.times);
 		Location location = new Location(name, detail, pLink, timeLink);

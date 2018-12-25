@@ -11,14 +11,16 @@ public class AdvancedQuery {
 	public AdvancedQuery() {
 		vc = new VirtuosoConnector();
 	}
-	
+
 	/**
 	 * Đưa ra những Person tham gia sự kiện Bach Khoa Open Day diễn ra tại Location
-	 * Sophie trong tháng 10/2018
+	 * Hà Nội trong tháng 10/2018
 	 * 
 	 * @param name
 	 */
 	public void AdvancedQuery1() {
+		System.out.println("AdvancedQuery1: Đưa ra những Person tham gia sự kiện Bach Khoa Open Day "
+				+ "diễn ra tại Hà Nội trong tháng 10/2018");
 		String queryString = "PREFIX ps: <http://example.org/Person/>\n";
 		queryString += "PREFIX ev: <http://example.org/Event/>\n";
 		queryString += "PREFIX lc: <http://example.org/Location/>\n";
@@ -32,7 +34,7 @@ public class AdvancedQuery {
 		queryString += "?idL lc:Name ?location.\n";
 		queryString += "?idE ev:At ?time.\n";
 		queryString += "FILTER regex(?event,\"Bach Khoa Open Day\").\n";
-		queryString += "FILTER regex(?location,\"Sophie\").\n";
+		queryString += "FILTER regex(?location,\"Hà Nội\").\n";
 		queryString += "FILTER regex(?re,\"take place\").\n";
 		queryString += "FILTER regex(?time,\"10/2018\").\n";
 		queryString += "}";
@@ -55,14 +57,17 @@ public class AdvancedQuery {
 			System.out.println("Time: " + FormatValue.formatString(solution.getValue("time").toString()));
 			System.out.println();
 		}
-		System.out.println((end - start) + "ms");
+		System.out.println("Time AdvancedQuery 1: " + (end - start) + "ms");
+		System.out.println();
 	}
 
 	/*
-	 * Đưa ra những Person work in organization Billabong và come sự kiện launches
-	 * iPhone XS, XS Max and XR
+	 * Đưa ra những Person work in organization International SOS và come sự kiện
+	 * launches iPhone XS, XS Max and XR
 	 */
 	public void AdvancedQuery2() {
+		System.out.println("AdvancedQuery2: Đưa ra những Person làm việc tại International SOS và "
+				+ "tới sự kiện launches iPhone XS, XS Max and XR");
 		String queryString = "PREFIX ps: <http://example.org/Person/>\n";
 		queryString += "PREFIX or: <http://example.org/Organization/>\n";
 		queryString += "PREFIX ev: <http://example.org/Event/>\n";
@@ -75,7 +80,7 @@ public class AdvancedQuery {
 		queryString += "?idP ?re2 ?idE.\n";
 		queryString += "?idE ev:Name ?event.\n";
 		queryString += "FILTER regex(?re1,\"work in\").\n";
-		queryString += "FILTER regex(?organization,\"Billabong\").\n";
+		queryString += "FILTER regex(?organization,\"International SOS\").\n";
 		queryString += "FILTER (str(?re2) like \"%come\").\n";
 		queryString += "FILTER regex(?event,\"launches iPhone XS, XS Max and XR\").\n";
 		queryString += "}";
@@ -91,19 +96,22 @@ public class AdvancedQuery {
 			System.out.println("Person: " + FormatValue.formatString(solution.getValue("person").toString()));
 			System.out.println("Relationship1: work in");
 			System.out.println("IDOrganization: " + FormatValue.formatString(solution.getValue("idO").toString()));
-			System.out.println("Organization: " + FormatValue.formatString(solution.getValue("organization").toString()));
+			System.out
+					.println("Organization: " + FormatValue.formatString(solution.getValue("organization").toString()));
 			System.out.println("Relationship2: " + FormatValue.formatString(solution.getValue("re2").toString()));
 			System.out.println("IDEvent: " + FormatValue.formatString(solution.getValue("idE").toString()));
 			System.out.println("Event: " + FormatValue.formatString(solution.getValue("event").toString()));
 			System.out.println();
 		}
-		System.out.println((end - start) + "ms");
+		System.out.println("Time AdvancedQuery 2: " + (end - start) + "ms");
+		System.out.println();
 	}
 
 	/*
 	 * 'Microsoft' 'organize' sự kiện 'World Trade Celebration 2018' ở ?location nào
 	 */
 	public void AdvancedQuery3() {
+		System.out.println("AdvancedQuery3: Microsoft tổ chức sự kiện 'World Trade Celebration 2018' ở Location nào ?");
 		String queryString = "PREFIX or: <http://example.org/Organization/>\n";
 		queryString += "PREFIX ev: <http://example.org/Event/>\n";
 		queryString += "PREFIX lc: <http://example.org/Location/>\n";
@@ -128,7 +136,8 @@ public class AdvancedQuery {
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
 			System.out.println("IDOrganization: " + FormatValue.formatString(solution.getValue("idO").toString()));
-			System.out.println("Organization: " + FormatValue.formatString(solution.getValue("organization").toString()));
+			System.out
+					.println("Organization: " + FormatValue.formatString(solution.getValue("organization").toString()));
 			System.out.println("Relationship1: organize");
 			System.out.println("IDEvent: " + FormatValue.formatString(solution.getValue("idE").toString()));
 			System.out.println("Event: " + FormatValue.formatString(solution.getValue("event").toString()));
@@ -137,13 +146,15 @@ public class AdvancedQuery {
 			System.out.println("Location: " + FormatValue.formatString(solution.getValue("location").toString()));
 			System.out.println();
 		}
-		System.out.println((end - start) + "ms");
+		System.out.println("Time AdvancedQuery 3: " + (end - start) + "ms");
+		System.out.println();
 	}
 
 	/*
 	 * 'Toyota' có headquarters ở 'Talitsy' organize sự kiện gì trong time '2018'
 	 */
 	public void AdvancedQuery4() {
+		System.out.println("AdvancedQuery4: Toyota có trụ sở ở Talitsy tổ chức sự kiện gì trong năm 2018.");
 		String queryString = "PREFIX or: <http://example.org/Organization/>\n";
 		queryString += "PREFIX ev: <http://example.org/Event/>\n";
 		queryString += "PREFIX lc: <http://example.org/Location/>\n";
@@ -168,22 +179,26 @@ public class AdvancedQuery {
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
 			System.out.println("IDOrganization: " + FormatValue.formatString(solution.getValue("idO").toString()));
-			System.out.println("Organization: " + FormatValue.formatString(solution.getValue("organization").toString()));
-			System.out.println("Headquarters: " + FormatValue.formatString(solution.getValue("headquarters").toString()));
+			System.out
+					.println("Organization: " + FormatValue.formatString(solution.getValue("organization").toString()));
+			System.out
+					.println("Headquarters: " + FormatValue.formatString(solution.getValue("headquarters").toString()));
 			System.out.println("Relationship1: organize");
 			System.out.println("IDEvent: " + FormatValue.formatString(solution.getValue("idE").toString()));
 			System.out.println("Event: " + FormatValue.formatString(solution.getValue("event").toString()));
 			System.out.println("Time: " + FormatValue.formatString(solution.getValue("time").toString()));
 			System.out.println();
 		}
-		System.out.println((end - start) + "ms");
+		System.out.println("Time AdvancedQuery 4: " + (end - start) + "ms");
+		System.out.println();
 	}
 
 	/*
-	 * 'Google' có trụ sở 'headquarters' tại 'Gustavsberg' hợp tác với 'cooperate
-	 * with' Organization nào ?
+	 * 'Google' có trụ sở 'headquarters' tại 'Tp. Hồ Chí Minh' hợp tác với
+	 * 'cooperate with' Organization nào ?
 	 */
 	public void AdvancedQuery5() {
+		System.out.println("AdvancedQuery5: Google có trụ sở tại Tp. Hồ Chí Minh hợp tác với Organization nào ?");
 		String queryString = "PREFIX or: <http://example.org/Organization/>\n";
 		queryString += "PREFIX re: <http://example.org/Relationship/>\n";
 		queryString += "\n";
@@ -194,7 +209,7 @@ public class AdvancedQuery {
 		queryString += "?idO1 ?re1 ?idO2.\n";
 		queryString += "?idO2 or:Name ?organization2.\n";
 		queryString += "FILTER regex(?organization1,\"Google\").\n";
-		queryString += "FILTER regex(?headquarters,\"Gustavsberg\").\n";
+		queryString += "FILTER regex(?headquarters,\"Tp. Hồ Chí Minh\").\n";
 		queryString += "FILTER regex(?re1,\"cooperate with\").\n";
 		queryString += "}";
 
@@ -206,14 +221,18 @@ public class AdvancedQuery {
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
 			System.out.println("IDOrganization1: " + FormatValue.formatString(solution.getValue("idO1").toString()));
-			System.out.println("Organization1: " + FormatValue.formatString(solution.getValue("organization1").toString()));
-			System.out.println("Headquarters: " + FormatValue.formatString(solution.getValue("headquarters").toString()));
+			System.out.println(
+					"Organization1: " + FormatValue.formatString(solution.getValue("organization1").toString()));
+			System.out
+					.println("Headquarters: " + FormatValue.formatString(solution.getValue("headquarters").toString()));
 			System.out.println("Relationship: cooperate with");
 			System.out.println("IDOrganization2: " + FormatValue.formatString(solution.getValue("idO2").toString()));
-			System.out.println("Organization2: " + FormatValue.formatString(solution.getValue("organization2").toString()));
+			System.out.println(
+					"Organization2: " + FormatValue.formatString(solution.getValue("organization2").toString()));
 			System.out.println();
 		}
-		System.out.println((end - start) + "ms");
+		System.out.println("Time AdvancedQuery 5: " + (end - start) + "ms");
+		System.out.println();
 	}
 
 	/*
@@ -221,6 +240,8 @@ public class AdvancedQuery {
 	 * 'AFF cup' vào time '12/2018'
 	 */
 	public void AdvancedQuery6() {
+		System.out.println(
+				"AdvancedQuery6: Việt Nam đàm phám với Country nào tổ chức sự kiện 'AFF cup' vào tháng 12/2018");
 		String queryString = "PREFIX c: <http://example.org/Country/>\n";
 		queryString += "PREFIX ev: <http://example.org/Event/>\n";
 		queryString += "PREFIX re: <http://example.org/Relationship/>\n";
@@ -254,10 +275,17 @@ public class AdvancedQuery {
 			System.out.println("Time: " + FormatValue.formatString(solution.getValue("time").toString()));
 			System.out.println();
 		}
-		System.out.println((end - start) + "ms");
+		System.out.println("Time AdvancedQuery 6: " + (end - start) + "ms");
+		System.out.println();
 	}
 
+	/**
+	 * Số lượng Person đã tham dự sự kiện có tên nameEvent
+	 * 
+	 * @param nameEvent
+	 */
 	public void AdvancedQuery7(String nameEvent) {
+		System.out.println("AdvancedQuery7: Số lượng Person đã tham dự sự kiện có tên " + nameEvent);
 		String queryString = " PREFIX ps: <http://example.org/Person/>\n";
 		queryString += " PREFIX ev: <http://example.org/Event/>\n";
 		queryString += " PREFIX re: <http://example.org/Relationship/>\n";
@@ -281,13 +309,15 @@ public class AdvancedQuery {
 			System.out.println("CountPerson: " + FormatValue.formatString(solution.getValue("countP").toString()));
 			System.out.println();
 		}
-		System.out.println((end - start) + "ms");
+		System.out.println("Time AdvancedQuery 7: " + (end - start) + "ms");
+		System.out.println();
 	}
 
 	/*
 	 * Số Person làm việc tại Samsung or Google
 	 */
 	public void AdvancedQuery8() {
+		System.out.println("AdvancedQuery8: Số Person làm việc tại Samsung or Google");
 		String queryString = "PREFIX ps: <http://example.org/Person/>\n";
 		queryString += "PREFIX or: <http://example.org/Organization/>\n";
 		queryString += "PREFIX re: <http://example.org/Relationship/>\n";
@@ -310,7 +340,8 @@ public class AdvancedQuery {
 			System.out.println("CountPerson: " + FormatValue.formatString(solution.getValue("countP").toString()));
 			System.out.println();
 		}
-		System.out.println((end - start) + "ms");
+		System.out.println("Time AdvancedQuery 8: " + (end - start) + "ms");
+		System.out.println();
 	}
 
 	/*
@@ -318,6 +349,8 @@ public class AdvancedQuery {
 	 * visits Vietnam'
 	 */
 	public void AdvancedQuery9() {
+		System.out.println("AdvancedQuery9: Số Person làm việc tại Microsoft hoặc Honda "
+				+ "đã tham gia sự kiện 'President Obama visits Vietnam'");
 		String queryString = "PREFIX ps: <http://example.org/Person/>\n";
 		queryString += "PREFIX or: <http://example.org/Organization/>\n";
 		queryString += "PREFIX ev: <http://example.org/Event/>\n";
@@ -342,16 +375,18 @@ public class AdvancedQuery {
 
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
-			
 			System.out.println("CountPerson: " + FormatValue.formatString(solution.getValue("countP").toString()));
 			System.out.println();
 		}
-		System.out.println((end - start) + "ms");
+		System.out.println("Time AdvancedQuery 9: " + (end - start) + "ms");
+		System.out.println();
 	}
+
 	/*
 	 * Đếm số Person passed final exam at 07/2018
 	 */
 	public void AdvancedQuery10() {
+		System.out.println("AdvancedQuery10: Đếm số Person vượt qua bài kiểm tra cuối kì vào tháng 07/2018");
 		String queryString = "PREFIX ps: <http://example.org/Person/>\n";
 		queryString += "PREFIX ev: <http://example.org/Event/>\n";
 		queryString += "PREFIX re: <http://example.org/Relationship/>\n";
@@ -373,11 +408,12 @@ public class AdvancedQuery {
 		while (result.hasNext()) {
 			BindingSet solution = result.next();
 			System.out.println("CountPerson: " + FormatValue.formatString(solution.getValue("countP").toString()));
-			System.out.println("Event: " + "final exam");
 			System.out.println("Relationship: passed");
+			System.out.println("Event: " + "final exam");
 			System.out.println("Time: " + "07/2018");
 			System.out.println();
 		}
-		System.out.println((end - start) + "ms");
+		System.out.println("Time AdvancedQuery 10: " + (end - start) + "ms");
+		System.out.println();
 	}
 }

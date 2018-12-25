@@ -7,7 +7,11 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class getFileContents {
-	//Get List of member
+	/**
+	 * 
+	 * @param fileName: Đường dẫn tương đối đến file
+	 * @return: ArrayList chứa dữ liệu 
+	 */
 	public static ArrayList<String> getListFiles(String fileName) {
 		ArrayList<String> list = new ArrayList<String>();
 		File file = new File(fileName);
@@ -35,7 +39,11 @@ public class getFileContents {
 		}
 		return list;
 	}
-	
+	/**
+	 * 
+	 * @param fileName: Đường dẫn tương đối đến file mô tả chi tiết Country
+	 * @return: Mô tả chi tiết Country
+	 */
 	public static String getCountryDetail(String fileName) {
 		String data = "";
 		File file = new File(fileName);

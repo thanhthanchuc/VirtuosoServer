@@ -38,6 +38,11 @@ public class RandomEventGenerator extends GetRandom implements DataLinkAndTime {
 		return new Event(name, detail, link, timeLink, time);
 	}
 
+	/**
+	 * 
+	 * @param conn
+	 * @return: Số lượng thực thể có trong database tính đến thời điểm hiện tại
+	 */
 	public int countEvent(RepositoryConnection conn) {
 		String count = null;
 		String queryString = "select count(distinct ?s) as ?count\n";

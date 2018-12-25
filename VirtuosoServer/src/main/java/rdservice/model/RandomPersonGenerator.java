@@ -21,7 +21,9 @@ public class RandomPersonGenerator implements DataLinkAndTime {
 	private static ArrayList<String> positions;
 	private static ArrayList<String> detailPerson;
 
-	// Khi tao moi object RandomPersonGenerator, data se auto add vao list
+	/*
+	 * Khi tạo mới class dữ liệu tự động thêm vào ArrayList tương ứng
+	 */
 	public RandomPersonGenerator() {
 		try {
 			firstNames = ListData.ListFirstNames();
@@ -33,6 +35,10 @@ public class RandomPersonGenerator implements DataLinkAndTime {
 		}
 	}
 
+	/**
+	 * Tạo ngẫu nhiên giá trị cho các thuộc tính của thực thể
+	 * @return: thực thể
+	 */
 	public Person generateRandomPerson() {
 		String fn = GetRandom.getRandomFromList(firstNames);
 		String ln = GetRandom.getRandomFromList(lastNames);
@@ -44,7 +50,11 @@ public class RandomPersonGenerator implements DataLinkAndTime {
 		return ps;
 	}
 
-	// Dem so luong person trong db.
+	/**
+	 * 
+	 * @param conn
+	 * @return: Số lượng thực thể có trong database tính đến thời điểm hiện tại
+	 */
 	public int countPerson(RepositoryConnection conn) {
 		String count = null;
 		String queryString = "select count(distinct ?s) as ?count\n";
@@ -64,6 +74,14 @@ public class RandomPersonGenerator implements DataLinkAndTime {
 		return s;
 	}
 
+	/**
+	 * Tạo các triple lưu dữ liệu và add vào model
+	 * 
+	 * @param vf
+	 * @param       model: chứa các triple
+	 * @param count
+	 * @return: IRI định danh thực thể
+	 */
 	public IRI createIriEntity(ValueFactory vf, Model model, int count) {
 		Person p = generateRandomPerson();
 

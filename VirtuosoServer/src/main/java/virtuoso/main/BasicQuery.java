@@ -12,15 +12,15 @@ public class BasicQuery {
 	public BasicQuery() {
 		vc = new VirtuosoConnector();
 	}
-	
+
 	/**
 	 * Đưa ra tất cả thông tin của Person có định danh là idP
 	 * 
 	 * @param maPerson
 	 * @param conn
 	 */
-	
 	public void basicQuery1(String idP) {
+		System.out.println("BasicQuery1: Đưa ra tất cả thông tin của Person có định danh là " + idP);
 		String queryString = "PREFIX ps:<http://example.org/Person/>\n";
 		queryString += "select *\n";
 		queryString += "where {\n";
@@ -45,7 +45,8 @@ public class BasicQuery {
 			System.out.println("Link: " + FormatValue.formatString(solution.getValue("link").toString()));
 			System.out.println();
 		}
-		System.out.println((end - start) + "ms");
+		System.out.println("Time BasicQuery 1: " + (end - start) + "ms");
+		System.out.println();
 	}
 
 	/**
@@ -54,6 +55,7 @@ public class BasicQuery {
 	 * @param idO
 	 */
 	public void basicQuery2(String idO) {
+		System.out.println("BasicQuery2: Đưa ra tất cả thông tin của Organization có định danh là " + idO);
 		String queryString = "PREFIX org:<http://example.org/Organization/>\n";
 		queryString += "select *\n";
 		queryString += "where {\n";
@@ -73,15 +75,23 @@ public class BasicQuery {
 			BindingSet solution = result.next();
 			System.out.println("IDOrganization: " + FormatValue.formatString(solution.getValue("idO").toString()));
 			System.out.println("Name: " + FormatValue.formatString(solution.getValue("name").toString()));
-			System.out.println("Headquarter: " + FormatValue.formatString(solution.getValue("headquarters").toString()));
+			System.out
+					.println("Headquarter: " + FormatValue.formatString(solution.getValue("headquarters").toString()));
 			System.out.println("Detail: " + FormatValue.formatString(solution.getValue("detail").toString()));
 			System.out.println("Link: " + FormatValue.formatString(solution.getValue("link").toString()));
 			System.out.println();
 		}
-		System.out.println((end - start) + "ms");
+		System.out.println("Time BasicQuery 2: " + (end - start) + "ms");
+		System.out.println();
 	}
 
+	/**
+	 * Đưa ra tất cả thông tin của Location có định danh là idL
+	 * 
+	 * @param idL
+	 */
 	public void basicQuery3(String idL) {
+		System.out.println("BasicQuery3: Đưa ra tất cả thông tin của Location có định danh là " + idL);
 		String queryString = "PREFIX lc:<http://example.org/Location/>\n";
 		queryString += "select *\n";
 		queryString += "where {\n";
@@ -104,7 +114,8 @@ public class BasicQuery {
 			System.out.println("Link: " + FormatValue.formatString(solution.getValue("link").toString()));
 			System.out.println();
 		}
-		System.out.println((end - start) + "ms");
+		System.out.println("Time BasicQuery 3: " + (end - start) + "ms");
+		System.out.println();
 	}
 
 	/**
@@ -113,14 +124,14 @@ public class BasicQuery {
 	 * @param idC
 	 */
 	public void basicQuery4(String nameCountry) {
+		System.out.println("BasicQuery4: Đưa ra tất cả thông tin của Country có định danh là " + nameCountry);
 		String queryString = "PREFIX c:<http://example.org/Country/>\n";
 		queryString += "select distinct ?idC ?detail ?link\n";
 		queryString += "where {\n";
 		queryString += "?idC c:Detail ?detail.\n";
 		queryString += "?idC c:Link ?link.\n";
 		queryString += "FILTER (str(?idC) like \"%" + nameCountry + "\").\n";
-		queryString += "}\n";
-		queryString += "";
+		queryString += "}";
 
 		long start = System.currentTimeMillis();
 		TupleQuery query = vc.conn.prepareTupleQuery(queryString);
@@ -134,15 +145,17 @@ public class BasicQuery {
 			System.out.println("Link: " + FormatValue.formatString(solution.getValue("link").toString()));
 			System.out.println();
 		}
-		System.out.println((end - start) + "ms");
+		System.out.println("Time BasicQuery 4: " + (end - start) + "ms");
+		System.out.println();
 	}
 
 	/**
-	 * Đưa ra tất cả thông tinh của Event có định danh là idE
+	 * Đưa ra tất cả thông tính của Event có định danh là idE
 	 * 
 	 * @param idE
 	 */
 	public void basicQuery5(String idE) {
+		System.out.println("BasicQuery5: Đưa ra tất cả thông tính của Event có định danh là " + idE);
 		String queryString = "PREFIX ev:<http://example.org/Event/>\n";
 		queryString += "select *\n";
 		queryString += "where {\n";
@@ -167,7 +180,8 @@ public class BasicQuery {
 			System.out.println("At: " + FormatValue.formatString(solution.getValue("time").toString()));
 			System.out.println();
 		}
-		System.out.println((end - start) + "ms");
+		System.out.println("Time BasicQuery 5: " + (end - start) + "ms");
+		System.out.println();
 	}
 
 	/**
@@ -176,6 +190,7 @@ public class BasicQuery {
 	 * @param idE
 	 */
 	public void basicQuery6(String nameEvent) {
+		System.out.println("BasicQuery6: Sự kiện có tên " + nameEvent + " diễn ra vào lúc nào ?");
 		String queryString = "PREFIX ev: <http://example.org/Event/>\n";
 		queryString += "Select ?idE ?name ?time\n";
 		queryString += "where {\n";
@@ -196,7 +211,8 @@ public class BasicQuery {
 			System.out.println("At: " + FormatValue.formatString(solution.getValue("time").toString()));
 			System.out.println();
 		}
-		System.out.println((end - start) + "ms");
+		System.out.println("Time BasicQuery 6: " + (end - start) + "ms");
+		System.out.println();
 	}
 
 	/**
@@ -204,6 +220,7 @@ public class BasicQuery {
 	 * @param nameEvent: Sự kiện có tên nameEvent diễn ra ở Location nào
 	 */
 	public void basicQuery7(String nameEvent) {
+		System.out.println("BasicQuery7: Sự kiện có tên " + nameEvent + " diễn ra ở Location nào ?");
 		String queryString = "PREFIX ev: <http://example.org/Event/>\n";
 		queryString += "PREFIX rl: <http://example.org/Relationship/>\n";
 		queryString += "PREFIX lc: <http://example.org/Location/>\n";
@@ -231,7 +248,8 @@ public class BasicQuery {
 			System.out.println("Location: " + FormatValue.formatString(solution.getValue("location").toString()));
 			System.out.println();
 		}
-		System.out.println((end - start) + "ms");
+		System.out.println("Time BasicQuery 7: " + (end - start) + "ms");
+		System.out.println();
 	}
 
 	/**
@@ -239,6 +257,7 @@ public class BasicQuery {
 	 * @param nameEvent: Đưa ra những Organization đã tổ chức sự kiện nameEvent
 	 */
 	public void basicQuery8(String nameEvent) {
+		System.out.println("BasicQuery8: Đưa ra những Organization đã tổ chức sự kiện " + nameEvent);
 		String queryString = "PREFIX ev: <http://example.org/Event/>\n";
 		queryString += "PREFIX rl: <http://example.org/Relationship/>\n";
 		queryString += "PREFIX or: <http://example.org/Organization/>\n";
@@ -265,7 +284,8 @@ public class BasicQuery {
 			System.out.println("Event: " + FormatValue.formatString(solution.getValue("event").toString()));
 			System.out.println();
 		}
-		System.out.println((end - start) + "ms");
+		System.out.println("Time BasicQuery 8: " + (end - start) + "ms");
+		System.out.println();
 	}
 
 	/**
@@ -273,6 +293,7 @@ public class BasicQuery {
 	 * @param nameEvent: Đưa ra những Person tham gia sự kiện nameEvent
 	 */
 	public void basicQuery9(String nameEvent) {
+		System.out.println("BasicQuery9: Đưa ra những Person tham gia sự kiện " + nameEvent);
 		String queryString = "PREFIX ev: <http://example.org/Event/>\n";
 		queryString += "PREFIX rl: <http://example.org/Relationship/>\n";
 		queryString += "PREFIX ps: <http://example.org/Person/>\n";
@@ -299,7 +320,8 @@ public class BasicQuery {
 			System.out.println("Event: " + FormatValue.formatString(solution.getValue("event").toString()));
 			System.out.println();
 		}
-		System.out.println((end - start) + "ms");
+		System.out.println("Time BasicQuery 9: " + (end - start) + "ms");
+		System.out.println();
 	}
 
 	/**
@@ -308,6 +330,7 @@ public class BasicQuery {
 	 * @param nameOrganization
 	 */
 	public void basicQuery10(String nameOrganization) {
+		System.out.println("BasicQuery10: Đưa ra những người đã phát triển tổ chức có tên " + nameOrganization);
 		String queryString = "PREFIX ps: <http://example.org/Person/>\n";
 		queryString += "PREFIX org: <http://example.org/Organization/>\n";
 		queryString += "\n";
@@ -330,9 +353,11 @@ public class BasicQuery {
 			System.out.println("Person: " + FormatValue.formatString(solution.getValue("person").toString()));
 			System.out.println("Relatioship: " + FormatValue.formatString(solution.getValue("rel").toString()));
 			System.out.println("IDOrganization: " + FormatValue.formatString(solution.getValue("idO").toString()));
-			System.out.println("Organization: " + FormatValue.formatString(solution.getValue("organization").toString()));
+			System.out
+					.println("Organization: " + FormatValue.formatString(solution.getValue("organization").toString()));
 			System.out.println();
 		}
-		System.out.println((end - start) + "ms");
+		System.out.println("Time BasicQuery 10: " + (end - start) + "ms");
+		System.out.println();
 	}
 }

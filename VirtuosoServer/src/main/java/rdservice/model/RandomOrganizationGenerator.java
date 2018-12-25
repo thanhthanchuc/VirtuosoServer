@@ -20,7 +20,6 @@ public class RandomOrganizationGenerator extends GetRandom implements DataLinkAn
 	private ArrayList<String> headquarters;
 	private ArrayList<String> organizationDetail;
 
-	// Khi tao moi object RandomPersonGenerator, data se auto add vao list
 	public RandomOrganizationGenerator() {
 		try {
 			organization = ListData.listOrganization();
@@ -40,6 +39,11 @@ public class RandomOrganizationGenerator extends GetRandom implements DataLinkAn
 		return new Organization(name, hp, detail, oLink, timeLink);
 	}
 
+	/**
+	 * 
+	 * @param conn
+	 * @return : Số lượng thực thể có trong database tính đến thời điểm hiện tại
+	 */
 	public int countOrganization(RepositoryConnection conn) {
 		String count = null;
 		String queryString = "select count(distinct ?s) as ?count\n";
